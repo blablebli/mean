@@ -176,6 +176,8 @@ function  testConArrays(){
      
      console.log(persona.nombre + persona.apellido);
 
+     
+
 }
 
 console.log("Adios mundo cruel!");

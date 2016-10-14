@@ -124,7 +124,7 @@ function sumar(valor1, valor2)
         {
             if(!isNaN(arguments[i]))
             {
-                
+
                 suma += arguments[i];
            }
            else{
@@ -138,13 +138,47 @@ function sumar(valor1, valor2)
         console.log("No se acepta menos de 2 parametros");
     }
 }
-
+//Pruebo la funcion con distintos parametros
 // sumar(1,2);
 //sumar(1);
 sumar(1,"hola", true, undefined,  "2016-08-03", new Date(), 3);
 console.log("==6 Inicio de ejemplos JS con Arrays ==");
 
+testConArrays();
+function  testConArrays(){
+    let miArray = new Array();
+    miArray[0]=7;
+    miArray[1]="valor"; // no es tipado puedo meter los quiero
+    //miArray.pop // borra un elemento
+    //miArray.push(); mete un valor
+    let otroArray = []; //he creado un array vacio que es lo mismo que crearlo con el new Array
+    let otro  = ["uno", 2, new Date()];
+    //Arrays asociativos
+    let otroArrayAsociativo = new Array(); // aqui no hay posicion 0 1 o 2
+    otroArrayAsociativo['uno']=1;
+    otroArrayAsociativo['dos']=2;
+    console.log(otroArrayAsociativo['uno']); // luego evolucionan por aqui los objetos y los json que me devuelve por lo que yo digo y no por la posicion
+
+
+//vamos a a ver la evolucion a objerto a partir de un array
+    let persona = new Array();
+//le asocio al array es la misma forma.
+     persona.nombre = "Ruben";
+     persona. apellido ="Gomez";
+
+     //como una funcion es una variable espercial con una referencia y por eso no pongo parentesis
+     persona.pruebaDeArgumentos = pruebaDeArgumentos;
+     //si la llamara tendría que poner los parentesis persona.pruebaDeArgumentos()
+     persona.pruebaDeArgumentos(); // llamao a la funcion 
+//Si pogo esto me devuelve el valor si pongo el parentesis de lo que devuelva la funcion antes lo hque 
+//hacia era asignar una referencia y no devolvia valor hasta q nolo llamaba
+       persona.pruebaDeArgumentos = pruebaDeArgumentos();
+     
+     console.log(persona.nombre + persona.apellido);
+
+}
+
 console.log("Adios mundo cruel!");
 
 
-console.log("Adios mundo cruel!");
+

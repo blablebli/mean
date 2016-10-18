@@ -233,5 +233,5 @@ console.log("Tiene valor " + miarraydeprueba.contiene(3));
 //me devolvera true;*/
 
 
-console.log("Fin objeto");
+console.log("Fin de objeto");
 

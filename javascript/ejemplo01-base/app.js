@@ -183,4 +183,51 @@ function  testConArrays(){
 console.log("Adios mundo cruel!");
 
 
+//Creo clase a partir de funciones
+function MiClase(campo1,campo2)
+{ // el this quiere decir que se crea a nivel de instancia
+    this.clave1 = campo1;
+    this.clave2 = campo2;
+    // para crear métodos lo hago con las funciones anónimas
+    this.miMetodoMal = function () {
+        return "mal hecho desde el metodo de la clase: "
+     + this.clave1 + " - " + this.clave2};
+
+    //Error pq si creo 1000 objetos se creara 1000 veces esta función siempre haciendo lo mismo
+    //y sera un problema de rendimiento
+    // para evitar esto se hace algo por arriba para no crearlo 1000 veces que sería un prototipado 
+}
+
+//Solucion para el problema del metodo Esto lo que hace crea a nivel del objeto padre pero solo lo crea una vez 
+MiClase.prototype.miMetodoBienPrototipado = function () {
+        return "mal hecho desde el metodo de la clase: "
+     + this.clave1 + " - " + this.clave2};
+
+   
+
+var miObjeto = new MiClase("uno", "dos"); //veo que es un artificio para crear clases
+//si yo quiero ver el contenido
+console.log("el valor de la clave1 es: " +miObjeto.clave1);
+console.log("Mi objeto tiene:" + miObjeto.miMetodoMal());
+console.log("Mi objeto tiene:" + miObjeto.miMetodoBienPrototipado());
+
+//hago un ejercicio con prototype dada la clase array le añado un metodo contiene qule asigno
+//una funcion anonima que recibe un parametro que es objeto y quiero comparar que este objeto esta dentro
+ //del array en cada posicion de for tengo mi elemento en el this[i]
+
+Array.prototype.contiene = function(objeto) 
+{
+    for(let i=0; i< this.length ; i++)
+    {
+        let elementoActual = this[i];
+        if (elementoActual == objeto){
+            return true;
+        }
+    }
+    return false;
+}
+
+let miarraydeprueba = [1,2,3,7,10];
+                                                   
+console.log("Tiene valor " + miarraydeprueba.contiene(3));//me devolvera true;*/
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+</head>
+<body>
+    <form action="#" name="frmcalculadora" id="frmcalculadora" >
+        <txt id="txtresultado" name="txtresultado">
+        <input type="button" id="n0"  value="0" onclick="numero('0')" />
+        <input type="button" id="n1"  value="1" onclick="numero('1')" />
+        <input type="button" id="n2" value="2" onclick="numero('2')"/>
+        <p>
+        <input type="button" id="n3" value="3" onclick="numero('3')"/>
+        <input type="button" id="n4"value="4" onclick="numero('4')"/>
+        <input type="button" id="n5" value="5" onclick="numero('5')"/>
+         <p>
+        <input type="button" id="n6"value="6" onclick="numero('6')"/>
+        <input type="button" id="n7"value="7" onclick="numero('7')"/>
+        <input type="button" id="n8"value="8" onclick="numero('8')"/>
+         <p>
+        <input type="button" id="n9" value="9" onclick="numero('9')"/>
+
+        <input type="button" id="o+" value="+" onclick="operacion('+')"/>
+        <input type="button" id="o-" value="-" onclick="operacion('-')"/>
+        <input type="button" id="o*" value="*" onclick="operacion('*')"/>
+        <input type="button" id="o/" value="/" onclick="operacion('/')"/>
+
+        <input type="button" id="C"value="C" onclick="limpiarTotal"/>
+        <input type="button" id="CE"value="CE" onclick="limpiarParcial"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+   <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script> 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+
+    
+</head>
+<body>
+    hola
+ <input type="button" value ="pulsame" onclick="javacript:getMarvelResponse();">
+    <br/>
+    <div id="resultado"><div>
+    <br>
+    <div id="container">
+        container
+        <br>
+    <div id="request">
+       
+    </div>
+     request
+        <br>
+        
+    <br />
+    <div id="response">
+        json1
+        <pre class="json">
+        </pre>
+        json<br>
+    </div>
+</div>
+
+
+<script>
+   
+
+//var crypto = require('crypto');
+    var apiBaseUrl = "http://gateway.marvel.com/v1/public/";
+var pubKey = "941910ed5545bcd215ba9bd3a90f93b3";
+var PRIV_KEY = "326be256cc149d11fa115595cf540b0ed8365c87"
+var method = "characters?limit=100";
+apiBaseUrl += method
+//var url = "http://gateway.marvel.com/v1/public/comics?limit=100&format=comic&formatType=comic&dateRange="+beginDateStr+"%2C"+endDateStr+"&apikey="+API_KEY;
+
+var ts = new Date().getTime();
+var message= ts + PRIV_KEY + pubKey
+
+var Crypt = new Crypt();  // constructor  
+  
+/*** MD5 */    
+var hash = Crypt.HASH.md5(message);
+
+
+
+apiBaseUrl += "&ts="+ts+"&hash="+hash;
+
+$.ajax({
+    type: "GET",
+//url: apiBaseUrl + method,
+    url:apiBaseUrl,
+    data: { apikey: pubKey },
+    dataType: "json",
+    async: false,
+    contentType: "application/json"
+})
+.then(function(data) {
+    $("#request").text(apiBaseUrl + method);
+    $(".json").text(JSON.stringify(data, null, 4)); 
+}, 
+    function(error) {
+        debugger;
+        alert('failed! ' + error.responseText);
+    });
+
+    //console.log("Entra");
+
+
+function getMarvelResponse() {
+
+  // you need a new ts every request 
+                                                                                  
+  var ts = new Date().getTime();
+  var hash = CryptoJS.MD5(ts + PRIV_KEY +  pubKey  ).toString();
+  
+  // the api deals a lot in ids rather than just the strings you want to use
+  var characterId = '1011334'//'1017100'//'1009718'; // wolverine                                                                             
+
+
+  var url = 'http://gateway.marvel.com:80/v1/public/comics';
+
+  console.log(url);
+  $.getJSON(url, {
+    ts: ts,
+    apikey:  pubKey,
+    hash: hash,
+    characters: characterId
+    })
+    .done(function(data) {
+      // sort of a long dump you will need to sort through
+      console.log(data);
+    })
+    .fail(function(err){
+      // the error codes are listed on the dev site
+      console.log(err);
+    });
+};
+
+
+  
+
+    </script>
+</body>
+</html>

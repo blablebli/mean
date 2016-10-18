@@ -49,3 +49,6 @@ function hacerPeticion(){
 //SI YO ABRO EL GOOGLE Y CIERRO LA PANTALLA EL BUSCADOR NO HACE NADA
     //pero ajax no puede hacer todas las peticiones que solemos querer tiene limitaciones put get post delete
 }
+
+
+

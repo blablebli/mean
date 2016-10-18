@@ -229,5 +229,9 @@ Array.prototype.contiene = function(objeto)
 
 let miarraydeprueba = [1,2,3,7,10];
                                                    
-console.log("Tiene valor " + miarraydeprueba.contiene(3));//me devolvera true;*/
+console.log("Tiene valor " + miarraydeprueba.contiene(3));
+//me devolvera true;*/
+
+
+console.log("Fin objeto");
 

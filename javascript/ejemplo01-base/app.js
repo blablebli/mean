@@ -236,6 +236,7 @@ console.log("Tiene valor " + miarraydeprueba.contiene(3));
 /texto a validar/. test("si hay texto a validar true");
 //recuerdo el array asociativo
 let mi_info = [{uno:1,dos:2,tres:{uno:1,dos:2,tres:3}},{uno:1,dos:2,tres:3}];
+
 console.log("Fin de objeto");
 
 console.log("Inicio Ajax")

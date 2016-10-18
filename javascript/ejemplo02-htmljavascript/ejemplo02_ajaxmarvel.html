@@ -13,7 +13,9 @@
 <body>
     hola
  <input type="button" value ="pulsame" onclick="javacript:getMarvelResponse();">
+
     <br/>
+    <img id="imagen" name="imagen" />
     <div id="resultado"><div>
     <br>
     <div id="container">
@@ -70,6 +72,21 @@ $.ajax({
 .then(function(data) {
     $("#request").text(apiBaseUrl + method);
     $(".json").text(JSON.stringify(data, null, 4)); 
+     //var jsonobject = JSON.parse(JSON.stringify(data, null, 4));
+   
+               resultado.innerHTML+=JSON.stringify(data, null, 4)[1].id  +"<br/>";
+               	var rssentries= JSON.parse(JSON.stringify(data, null, 4));
+
+  
+ 
+  console.log(rssentries.code);
+    console.log(rssentries.data.limit);   
+    console.log(rssentries.data.results[0].id);
+     console.log(rssentries.data.results[0].thumbnail.path +"."+rssentries.data.results[0].thumbnail.extension);
+     var ruta = rssentries.data.results[0].thumbnail.path +"."+rssentries.data.results[0].thumbnail.extension;
+     //$('#imagen).src = ruta;
+$('#imagen').attr('src', ruta);
+    console.log(rssentries.data.results[0].comics.items[0].name);        
 }, 
     function(error) {
         debugger;

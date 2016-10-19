@@ -1,1 +1,1 @@
-
+//se encarga de pintar

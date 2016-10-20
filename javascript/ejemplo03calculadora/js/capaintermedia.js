@@ -1,1 +1,0 @@
-//se encarga de pintar

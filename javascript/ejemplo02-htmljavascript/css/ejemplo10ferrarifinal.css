@@ -1,0 +1,106 @@
+/*Contenedor */
+body{
+    background: green;
+    color: white;
+    font: sans-serif 14px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, .4);
+}
+#contenedor {
+    background: yellow;
+    margin: 0 auto;
+    max-width: 1000px;
+    border: 5px solid yellow;
+    border-radius: 5px
+}
+section#contendedor > header, section #contenedro > footer {
+    background: red;
+    border-radius: 5px;
+}
+
+header#cabecera > section 
+{
+    display:inline-block;
+    font-size:2em;
+    vertical-align: middle;
+    margin:10px;
+}
+
+footer#pie > section{
+    padding-right:10px;
+    text-align:right;
+}
+
+section#contenedor > section, nav#MigaDePan{
+    background: white;
+     border-radius: 5px;
+     color: black;
+     font-size: 15px;
+     margin: 5px 5px;
+     padding:10px;
+}
+h2{
+    text-align:center;
+}
+
+section#contenedor > section#lateral{
+    width:20%;
+    min-width:150px;
+    float:left;/* que se ponga en el lado izdo le digo un porcentaje de 20% y un minimo de 150 pixeles*/
+}
+
+/*> es el primer children y veo que no apta a nada pq solo hay header y article*/
+section#contenedor > section#principal
+{
+    /* defino un margen a la izda y otro a la dcha*/
+    margin-left:24%;/* con repecto a la capa de su contenedor de la web*/
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+/* ya empieza a las directivas que yo digo*/
+/* Defino unas condiciones con medias querys por ejemplo si le digo imprimir no aplica los estilos
+cuando la pantalla cambie a 400 px lo defina como una caja y lo pongo abajo 
+*/
+
+@media screen and (max-widht:400px){
+    header#cabecer > section {
+        display:block;
+        text-align:center;
+    }
+    h1{
+        margin: 0px;
+    }
+    section#contenedor > section#principal{
+        margin: 5px 0px;
+    }
+    
+}
+
+/* otra condicion de cuando llega a los 800 px lo junto a la izda*/
+@media screen and (max-width:800px){
+    section#contenedor > section#lateral{
+        width:150px;
+    }
+    section#contenedor > section#principal{
+        width:185px;
+    }
+}
+
+
+/*Estilo solo para la imagen*/
+#detalle img {
+    /*dentro de detalle las imagenes que encuentre y mueve la imagen 
+    de sitio la pone abajo a la ixda y si subo desde abajo hasta arriba siempre esta abajo*/
+    
+    position:fixed;
+    bottom:20 px;
+    left:20px;
+}
+/*pero la imagen tenia un problema con el texto cuando lo muevo el navegador y lo estrecho*/
+/*Solucion oculto la imagen*/
+@media screen and (max-width:1200px)
+{
+    #detalle img {
+        /*image:none*/
+    }
+
+}

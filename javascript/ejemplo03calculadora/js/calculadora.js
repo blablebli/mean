@@ -8,10 +8,13 @@ var puntoA = false;
 var puntoB = false;
 var botonIgual = false;
 
+calculadora = new Calculadora(); // cosa nueva del teacher
+
+var memoria;
 operacion = "";
 
 function PintaResultado(valorNumero)
-{
+{//ingresar en el input el valor que me llega cojo el 1 y lo planto
     if (operacion == "")
     {
         if (!puntoA){
@@ -36,9 +39,15 @@ function PintaResultado(valorNumero)
     
 }
 
+//recogo la operacion para delegar en calcladora.js
 function operacion(valorOperacion)
-{
+{//si le doy al mas se tiene que guardar el 1, si 
+    //todo en caso de que me llegue igual 
+    //llamar a la calculadora con el valor de memoria el valor del display y sumarlo
     operacion = valorOperacion
+//profesor
+    calculadora.sumar(memoria, document.getElementById("resultado"));
+    //calculadora.prototype.sumar;
 }
 
 function Resultado()

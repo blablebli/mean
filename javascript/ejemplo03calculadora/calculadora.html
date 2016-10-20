@@ -4,40 +4,61 @@
     <meta charset="UTF-8">
     <script type="text/javascript" src="js/calculadora.js" >
     </script>
+      <link 
+        rel="stylesheet"
+        type="text/css"
+        media="screen"
+        href="css/calculadora.css">
+    </link>
     <title>Calculadora</title>
 </head>
 <body>
+  
     <form action="#" name="frmcalculadora" id="frmcalculadora" >
-        <txt id="txtresultado" name="txtresultado">
+          <div class="calculator">
+<!--Tareas
+- sume 2 valores dibujo una caja y 2 botones uno el numero y otro el boton suma que haga no en la vista a +b y return c
+- reste multipleque y divide la misma caja, ya tengo la vista y no en la vista implementar el menor el por y el enter
+- vaya acumulando valores de tal forma que al poner el segundo sume el anterior q al poner el tercero sume el anterior que tenga algun tipo de memoria
+- que admita decimales
+que me devuleva la memoria.-->
+
+<div class="box">
+<div class="display"><input type="text" id="txtresultado" name="txtresultado" readonly size="18" id="d"></div>
+
+  
        <p>
-        <input type="button" id="btn0"  value="0" onclick="PintaResultado('0');" />
-        <input type="button" id="btn1"  value="1" onclick="PintaResultado('1');" />
-        <input type="button" id="btn2" value="2" onclick="PintaResultado('2');"/>
+        <input type="button" id="btn0" class="btn-style"  value="0" onclick="PintaResultado('0');" />
+        <input type="button" id="btn1" class="btn-style" value="1" onclick="PintaResultado('1');" />
+        <input type="button" id="btn2" class="btn-style" value="2" onclick="PintaResultado('2');"/>
         </p>
         <p>
-        <input type="button" id="btn3" value="3" onclick="PintaResultado('3');"/>
-        <input type="button" id="btn4"value="4" onclick="PintaResultado('4');"/>
-        <input type="button" id="btn5" value="5" onclick="PintaResultado('5');"/>
+        <input type="button" id="btn3" class="btn-style" value="3" onclick="PintaResultado('3');"/>
+        <input type="button" id="btn4" class="btn-style" value="4" onclick="PintaResultado('4');"/>
+        <input type="button" id="btn5" class="btn-style" value="5" onclick="PintaResultado('5');"/>
         </p>
          <p>
-        <input type="button" id="btn6"value="6" onclick="PintaResultado('6');"/>
-        <input type="button" id="btn7"value="7" onclick="PintaResultado('7');"/>
-        <input type="button" id="btn8"value="8" onclick="PintaResultado('8');"/>
+        <input type="button" id="btn6" class="btn-style" value="6" onclick="PintaResultado('6');"/>
+        <input type="button" id="btn7" class="btn-style" value="7" onclick="PintaResultado('7');"/>
+        <input type="button" id="btn8" class="btn-style" value="8" onclick="PintaResultado('8');"/>
          </p>
          <p>
-        <input type="button" id="btn9" value="9" onclick="PintaResultado('9');"/>
-        <input type="button" id="btnSuma" value="+" onclick="operacion('+');"/>
-        <input type="button" id="btnResta" value="-" onclick="operacion('-');"/>
+        <input type="button" id="btn9" class="btn-style" value="9" onclick="PintaResultado('9');"/>
+        <input type="button" id="btnSuma" class="opera-style" value="+" onclick="operacion('+');"/>
+        <input type="button" id="btnResta" class="opera-style" value="-" onclick="operacion('-');"/>
           </p>
           <p>
-        <input type="button" id="btnMult" value="*" onclick="operacion('*');"/>
-        <input type="button" id="btnDivide" value="/" onclick="operacion('/');"/>
-        <input type="button" id="btnIgual" value="=" onclick="operacion('=');"/>
+        <input type="button" id="btnMult" class="opera-style" value="*" onclick="operacion('*');"/>
+        <input type="button" id="btnDivide" class="opera-style" value="/" onclick="operacion('/');"/>
+        <input type="button" id="btnIgual" class="igual-style" value="=" onclick="operacion('=');"/>
          </p>
           <p>
-        <input type="button" id="btnC"value="C" onclick="limpiarTotal(true);"/>
-        <input type="button" id="btnCE"value="CE" onclick="limpiarParcial();"/>
-        <input type="button" id="btnDecimal"value="." onclick="PintaResultado('.');"/>
+        <input type="button" id="btnC"value="C" class="btn-style" onclick="limpiarTotal(true);"/>
+        <input type="button" id="btnCE"value="CE" class="btn-style" onclick="limpiarParcial();"/>
+        <input type="button" id="btnDecimal"value="." class="btn-style" onclick="PintaResultado('.');"/>
+     </div>
+      </div>
     </form>
+
 </body>
 </html>

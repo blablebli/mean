@@ -9,6 +9,14 @@
             "sourceMaps": true,
             "webRoot": "${workspaceRoot}"
         },
+         {
+            "name": "Ejemplo 10 Ferrari",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8080/mean_mio/mean/javascript/ejemplo02-htmljavascript/ejemplo10ferrarifinal.html",
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}"
+        },
         {
             "name": "Attach to Chrome, with sourcemaps",
             "type": "chrome",

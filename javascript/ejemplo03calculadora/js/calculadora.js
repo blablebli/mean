@@ -4,43 +4,71 @@
 
 var a=0;
 var b=0;
+var puntoA = false;
+var puntoB = false;
+var botonIgual = false;
+
 operacion = "";
-function numero(valorNumero)
+
+function PintaResultado(valorNumero)
 {
     if (operacion == "")
     {
-        a = a +valorNumero;
+        if (!puntoA){
+            a = a & valorNumero;
+            document.getElementById('resultado') = a;
+        }
+
     }
     else{
-        b = b + valorNumero;
+        if (!puntoB){
+            if (!botonIgual)
+            {
+            b = b & valorNumero;
+            document.getElementById('resultado') = b;
+            }
+            else
+            {//si le ha dado a la operaacion igual
+                //document.getElementById('resultado') = '';
+            }
+        }
     }
+    
 }
 
 function operacion(valorOperacion)
 {
-    switch(valorOperacion)
-    {
-        case '+':
-            operacion = '+';
-            return a + b;
-        case '-':
-            operacion = '-';
-            return a-b;
-        case '*':
-            operacion = '*';
-            return a*b;
-        case '/':
-             if (b>0)
-                operacion ='/' 
-                return a/b;
-
-    }
+    operacion = valorOperacion
 }
 
-function limpiarTotal(){
+function Resultado()
+{
+    switch(valorOperacion)
+    {
+        case '+':            
+            return a + b;
+        case '-':           
+            return a-b;
+        case '*':
+            
+            return a*b;
+        case '/':
+             if (b>0)              
+             return a/b;
+    }
+   
+}
+
+
+
+function limpiarTotal(borraResultado){
     a=0;
     b=0;
     operacion="";
+    if (borraResultado)
+    {
+         document.getElementById('resultado') = '';
+    }
 }
 function limpiarParcial()
 {

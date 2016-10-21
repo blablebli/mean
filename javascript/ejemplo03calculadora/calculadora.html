@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="js/calculadora.js" >
+      <script type="text/javascript" src="js/calculadora.js" />
+    <script type="text/javascript" src="js/control.js" />
+   
+     
+   
     </script>
       <link 
         rel="stylesheet"
@@ -24,38 +28,48 @@
 que me devuleva la memoria.-->
 
 <div class="box">
-<div class="display"><input type="text" id="txtresultado" name="txtresultado" readonly size="18" id="d"></div>
-
+<div class="display"><input type="text" id="txtresultado" class="txt-resultado" name="txtresultado" readonly size="29" id="d"></div>
+        <p>
+            <input type="button" id="btnRetroceso"value="<-" class="btn-borra" onclick="limpiarParcial();"/>
+            <input type="button" id="btnDivide" class="btn-borra" value="C" onclick="operacion('/');"/>           
+            <input type="button" id="btnCE"value="CE" class="btn-borra" onclick="limpiarParcial();"/>
+         </p>
   
        <p>
-        <input type="button" id="btn0" class="btn-style"  value="0" onclick="PintaResultado('0');" />
+       
         <input type="button" id="btn1" class="btn-style" value="1" onclick="PintaResultado('1');" />
         <input type="button" id="btn2" class="btn-style" value="2" onclick="PintaResultado('2');"/>
+        <input type="button" id="btn3" class="btn-style" value="3" onclick="PintaResultado('3');"/>
+        <input type="button" id="btnSuma" class="opera-style" value="+" onclick="operacion('+');"/>
         </p>
         <p>
-        <input type="button" id="btn3" class="btn-style" value="3" onclick="PintaResultado('3');"/>
+        
         <input type="button" id="btn4" class="btn-style" value="4" onclick="PintaResultado('4');"/>
         <input type="button" id="btn5" class="btn-style" value="5" onclick="PintaResultado('5');"/>
+        <input type="button" id="btn6" class="btn-style" value="6" onclick="PintaResultado('6');"/>
+        <input type="button" id="btnResta" class="opera-style" value="-" onclick="operacion('-');"/>
         </p>
          <p>
-        <input type="button" id="btn6" class="btn-style" value="6" onclick="PintaResultado('6');"/>
+        
         <input type="button" id="btn7" class="btn-style" value="7" onclick="PintaResultado('7');"/>
         <input type="button" id="btn8" class="btn-style" value="8" onclick="PintaResultado('8');"/>
+        <input type="button" id="btn9" class="btn-style" value="9" onclick="PintaResultado('9');"/>
+         <input type="button" id="btnMult" class="opera-style" value="*" onclick="operacion('*');"/>
          </p>
          <p>
-        <input type="button" id="btn9" class="btn-style" value="9" onclick="PintaResultado('9');"/>
-        <input type="button" id="btnSuma" class="opera-style" value="+" onclick="operacion('+');"/>
-        <input type="button" id="btnResta" class="opera-style" value="-" onclick="operacion('-');"/>
+         <input type="button" id="btnDecimal"value="." class="btn-style" onclick="PintaPunto('.');"/>
+         <input type="button" id="btn0" class="btn-style"  value="0" onclick="PintaResultado('0');" />
+          <input type="button" id="btnIgual" class="igual-style" value="=" onclick="operacion('=');"/>
+         <input type="button" id="btnDivide" class="opera-style" value="/" onclick="operacion('/');"/>
+          
+        
+        
           </p>
-          <p>
-        <input type="button" id="btnMult" class="opera-style" value="*" onclick="operacion('*');"/>
-        <input type="button" id="btnDivide" class="opera-style" value="/" onclick="operacion('/');"/>
-        <input type="button" id="btnIgual" class="igual-style" value="=" onclick="operacion('=');"/>
-         </p>
-          <p>
-        <input type="button" id="btnC"value="C" class="btn-style" onclick="limpiarTotal(true);"/>
-        <input type="button" id="btnCE"value="CE" class="btn-style" onclick="limpiarParcial();"/>
-        <input type="button" id="btnDecimal"value="." class="btn-style" onclick="PintaResultado('.');"/>
+          
+         
+        
+        
+       
      </div>
       </div>
     </form>

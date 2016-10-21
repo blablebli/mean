@@ -2,13 +2,13 @@
 //y así solo tendrái que hacer una clase intermedia que llame a la clase calculadora y lo que hacer
 //es pintar el resultado y que recoga los valores mediante un getElementeNTiD
 
-var a=0;
+/*var a=0;
 var b=0;
 var puntoA = false;
 var puntoB = false;
 var botonIgual = false;
 
-calculadora = new Calculadora(); // cosa nueva del teacher
+//calculadora = new Calculadora(); // cosa nueva del teacher
 
 var memoria;
 operacion = "";
@@ -87,4 +87,41 @@ function limpiarParcial()
     } else{
         a=0;
     }
-}
+}*/
+
+
+function Calculadora(){
+ 
+};
+ 
+
+function Calculadora(clave1, clave2){
+  this.clave1 = campo1;
+  this.clave2 = campo2;
+};
+ 
+
+//Calculadora.prototype.sumar(clave1, clave2) = function () {
+    Calculadora.prototype.sumar = function () {
+        //return this.clave1 +this.clave2;
+        return clave1 +clave2;
+    };
+
+//Calculadora.prototype.restar(clave1, clave2) = function () {
+    Calculadora.prototype.restar = function () {
+        return clave1 - clave2;
+    };
+
+//Calculadora.prototype.multiplicar(clave1, clave2) = function () {
+    Calculadora.prototype.multiplicar= function () {
+        return clave1 * clave2;
+    };
+
+//Calculadora.prototype.dividir(clave1, clave2) = function () {
+    Calculadora.prototype.dividir = function () {
+      if (this.clave2>0)             
+      {    
+        return clave1 / clave2;
+      }
+    };
+

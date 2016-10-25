@@ -21,14 +21,21 @@ function PintaResultado(valorNumero)
     else{
         if (!punto){
             if (!botonIgual)
-            {                      
-                 document.getElementById("txtresultado").value = valorNumero; 
-                 memoria = valorNumero; 
+            {       //aqui si sigue haciendo operaciones despues de haber dado igual y tengo en memoria el valor anterior
+               
+                // document.getElementById("txtresultado").value = document.getElementById("txtresultado").value + valorNumero; 
+ document.getElementById("txtresultado").value = memoria + valorNumero; 
+
+
+ // necesito tener en memoria el valor del total
+
+ //si entra aqui cuando hace mas la primera vez no le puedo asociar ese valor que entra segundo en memoria tengo el valor priero
+                // memoria = valorNumero;
+
             }
             else
-            {
-               document.getElementById("txtresultado").value = valorNumero;
-                memoria = valorNumero; 
+            { // en el igual no concateno nada                       
+             document.getElementById("txtresultado").value =  valorNumero;
                botonIgual= false; 
             }
         }
@@ -37,7 +44,7 @@ function PintaResultado(valorNumero)
     } 
 
    // alert ("PintaResultadoSale"+memoria);
-}s
+}
 
 function PintaPunto(){
     if (!punto)
@@ -51,7 +58,7 @@ function PintaPunto(){
 function operacion(valorOperacion)
 {
     calculadora.valor1= memoria;
- 
+     document.getElementById("txtresultado").value="";
      operacionString  = valorOperacion; 
      PintaResultado("");
       punto = false;
@@ -69,7 +76,7 @@ function operacionIgual()
     botonIgual= true;
     calculadora.clave1= memoria;
     calculadora.clave2= document.getElementById("txtresultado").value;
-memoria ="";
+
     switch(operacionString)
     {
         case '+': 
@@ -85,8 +92,9 @@ memoria ="";
             PintaResultado(calculadora.dividir());       
             break;
     } 
-        punto = false;       
-    
+        punto = false;  
+        // lo guardo para si quiere seguir sumando     
+  memoria = document.getElementById("txtresultado").value;
 }
 
 

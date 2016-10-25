@@ -24,7 +24,7 @@ function PintaResultado(valorNumero)
             {       //aqui si sigue haciendo operaciones despues de haber dado igual y tengo en memoria el valor anterior
                
                 // document.getElementById("txtresultado").value = document.getElementById("txtresultado").value + valorNumero; 
- document.getElementById("txtresultado").value = memoria + valorNumero; 
+ //document.getElementById("txtresultado").value = memoria + valorNumero; 
 
 
  // necesito tener en memoria el valor del total

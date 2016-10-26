@@ -28,28 +28,34 @@ function limpiarParcial()
 function Calculadora(clave1, clave2){
  this.clave1 = 0;
  this.clave2 = 0;
- 
+ this.resultado = 0;
 };
 
 
 Calculadora.prototype.sumar = function sumar(){
-        return eval( parseInt(this.clave1) +  parseInt(this.clave2));
+        resultado = eval( parseInt(this.clave1) +  parseInt(this.clave2));
+        return resultado;
     }
 
-function restar(){
-        return eval( parseInt(this.clave1) -  parseInt(this.clave2));
+Calculadora.prototype.restar =function restar(){
+        resultado = eval( parseInt(this.clave1) -  parseInt(this.clave2));
+        return resultado;
     }
 
-function multiplicar(){
-        return eval( parseInt(this.clave1) *  parseInt(this.clave2));
+Calculadora.prototype.multiplicar =function multiplicar(){
+        resultado = eval( parseInt(this.clave1) *  parseInt(this.clave2));
+        return resultado;
     }
 
-function dividir(){
+Calculadora.prototype.dividir =function dividir(){
         if (this.clave2>0)             
       {    
-         return eval( parseInt(this.clave1) /  parseInt(this.clave2));
+         resultado = eval( parseInt(this.clave1) /  parseInt(this.clave2));
+         return resultado;
       }
     }
+
+    
 
 
 

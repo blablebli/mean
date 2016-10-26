@@ -1,0 +1,25 @@
+{
+    "animales" :[
+        {
+            "id": 1,
+            "nombre": "Richard Parker",
+            "tipo": "Tigre de bengala"
+        },
+         {
+            "id": 2,
+            "nombre": "Jose ",
+            "tipo": "Leon"
+        },
+         {
+            "id": 3,
+            "nombre": "Antonio",
+            "tipo": "Caballo"
+        },
+         {
+            "id": 4,
+            "nombre": "Federico",
+            "tipo": "Cerdo"
+        }
+    ]
+
+}

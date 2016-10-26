@@ -23,7 +23,7 @@ que me devuleva la memoria.-->
 <div class="box">
 <div class="display"><input type="text" id="txtresultado" class="txt-resultado" name="txtresultado" readonly size="29" id="d"></div>
         <p>
-            <input type="button" id="btnRetroceso"value="<-" class="btn-borra" onclick="limpiarParcial();"/>
+            <input type="button" id="btnRetroceso"value="<-" class="btn-borra" onclick="limpiarUltimaTecla();"/>
             <input type="button" id="btnC" class="btn-borra" value="C" onclick="limpiarTotal();"/>           
             <input type="button" id="btnCE"value="CE" class="btn-borra" onclick="limpiarParcial();"/>
          </p>
@@ -52,17 +52,10 @@ que me devuleva la memoria.-->
          <p>
          <input type="button" id="btnDecimal"value="." class="btn-style" onclick="PintaPunto('.');"/>
          <input type="button" id="btn0" class="btn-style"  value="0" onclick="PintaResultado('0');" />
-          <input type="button" id="btnIgual" class="igual-style" value="=" onclick="operacionIgual();"/>
-         <input type="button" id="btnDivide" class="opera-style" value="/" onclick="operacion('/');"/>
-          
+          <input type="button" id="btnIgual" class="igual-style" value="=" onclick="operacionIgual(true);"/>
+         <input type="button" id="btnDivide" class="opera-style" value="/" onclick="operacion('/');"/>                 
         
-        
-          </p>
-          
-         
-        
-        
-       
+          </p>     
      </div>
       </div>
     </form>

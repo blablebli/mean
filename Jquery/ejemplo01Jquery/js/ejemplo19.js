@@ -14,7 +14,8 @@ function peticionAjaxGenerica(){
     $.ajax({
         // Puede ser una cadena, un array o un object de JS
         // nombre=Ruben&nivel_de_cafe=medio
-        data: {nombre:"Ruben",nivel_de_cafe:"medio"},
+        // si pongo post: tengo que poner data
+        // data: {nombre:"Ruben",nivel_de_cafe:"medio"},
         // Tipo de peticion http
         type:"GET",
         // tipo de dato esperado
@@ -30,7 +31,7 @@ function peticionAjaxGenerica(){
 function peticionCompletada(data, status,jqXHR){
     alert("Petición completada con status "+ status 
     +" : " + data);
-    $("#contenido_de_ajax").html(data[2].nombre)
+    $("#contenido_de_ajax").html(data[0].nombre);
     //$("#contenido_de_ajax").html(data[7].username)
 }
 function peticionFallida(jqXHR,status,error){

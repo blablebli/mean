@@ -2,10 +2,76 @@ $(document).ready(initializeEvents);
 
 function initializeEvents(){
     $("tr").click(presionFila);
-    $("#boton1").click(Guardar);
-    $("#boton2").click(Modificar);
-    $("#boton3").click(Borrar);
+    $("#boton1").click(GuardarpeticionAjaxGenerica);
+    $("#boton2").click(ModificarpeticionAjaxGenerica);
+    $("#boton3").click(BorrarpeticionAjaxGenerica);
     
+}
+
+function GuardarpeticionAjaxGenerica(){
+    $.ajax({
+        // Puede ser una cadena, un array o un object de JS
+        // nombre=Ruben&nivel_de_cafe=medio
+        //el"post" no necesita "data" sino no funiciona el "get"
+       // data: {nombre:"Ruben",nivel_de_cafe:"medio"},
+        // Tipo de peticion http
+        type:"GET",
+        // tipo de dato esperado
+        dataType: "json",
+        // URL de comunicación con el servicio
+      //  url: "https://jsonplaceholder.typicode.com/users"
+       url: "http://localhost:3000/animales"
+    })
+    .done(peticionCompletada)
+    .fail(peticionFallida);
+}
+
+function ModificarpeticionAjaxGenerica(){
+    $.ajax({
+        // Puede ser una cadena, un array o un object de JS
+        // nombre=Ruben&nivel_de_cafe=medio
+         //el"post" no necesita "data" sino no funiciona el "get"
+       // data: {nombre:"Ruben",nivel_de_cafe:"medio"},
+        // Tipo de peticion http
+        type:"GET",
+        // tipo de dato esperado
+        dataType: "json",
+        // URL de comunicación con el servicio
+         url: "https://jsonplaceholder.typicode.com/users"
+      // url: "http://localhost:3000/animales"
+    })
+    .done(peticionCompletada)
+    .fail(peticionFallida);
+}
+
+function peticionCompletada(data, status,jqXHR){
+    alert("Petición completada con status "+ status 
+    +" : " + data);
+    $("#contenido_de_ajax").html(data[0].nombre)
+   // $("#contenido_de_ajax").html(data[7].username);
+}
+function peticionFallida(jqXHR,status,error){
+    alert.log("Error al procesar la petición" );
+    console.log("Status :" + status);
+    console("Error! " + error);
+}
+
+function BorrarpeticionAjaxGenerica(){
+    $.ajax({
+        // Puede ser una cadena, un array o un object de JS
+        // nombre=Ruben&nivel_de_cafe=medio
+         //el"post" no necesita "data" sino no funiciona el "get"
+       // data: {nombre:"Ruben",nivel_de_cafe:"medio"},
+        // Tipo de peticion http
+        type:"GET",
+        // tipo de dato esperado
+        dataType: "json",
+        // URL de comunicación con el servicio
+       // url: "https://jsonplaceholder.typicode.com/users"
+       url: "http://localhost:3000/animales"
+    })
+    .done(peticionCompletada)
+    .fail(peticionFallida);
 }
 
 function presionFila(){
@@ -30,3 +96,21 @@ function Borrar(){
      $("#descripcion").fadeIn("slow");
 }
 
+
+
+function GuardarpeticionAjaxGenerica(){
+    $.ajax({
+        // Puede ser una cadena, un array o un object de JS
+        // nombre=Ruben&nivel_de_cafe=medio
+        data: {nombre:"Ruben",nivel_de_cafe:"medio"},
+        // Tipo de peticion http
+        type:"GET",
+        // tipo de dato esperado
+        dataType: "json",
+        // URL de comunicación con el servicio
+       // url: "https://jsonplaceholder.typicode.com/users"
+       url: "http://localhost:3000/animales"
+    })
+    .done(peticionCompletada)
+    .fail(peticionFallida);
+}

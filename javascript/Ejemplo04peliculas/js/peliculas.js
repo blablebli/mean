@@ -2,13 +2,16 @@ $(document).ready(initializeEvents);
 
 function initializeEvents(){
     $("tr").click(presionFila);
+    $("#boton0").click(VerpeticionAjaxGenerica);
     $("#boton1").click(GuardarpeticionAjaxGenerica);
     $("#boton2").click(ModificarpeticionAjaxGenerica);
-    $("#boton3").click(BorrarpeticionAjaxGenerica);
+   // $("#boton3").click(BorrarpeticionAjaxGenerica);
     
 }
 
-function GuardarpeticionAjaxGenerica(){
+
+
+function VerpeticionAjaxGenerica(){
     $.ajax({
         // Puede ser una cadena, un array o un object de JS
         // nombre=Ruben&nivel_de_cafe=medio
@@ -20,59 +23,114 @@ function GuardarpeticionAjaxGenerica(){
         dataType: "json",
         // URL de comunicación con el servicio
       //  url: "https://jsonplaceholder.typicode.com/users"
-       url: "http://localhost:3000/animales"
+       url: "http://localhost:3000/peliculas"
     })
     .done(peticionCompletada)
     .fail(peticionFallida);
 }
 
-function ModificarpeticionAjaxGenerica(){
+
+function GuardarpeticionAjaxGenerica(){
+    var datoPelicula = {
+            titulo: $("#titulo").val(),
+            director:$("#director").val(),
+            sinopsis:$("#sinopsis").val(),
+            fecha:$("#fecha").val()
+        }
+
     $.ajax({
         // Puede ser una cadena, un array o un object de JS
         // nombre=Ruben&nivel_de_cafe=medio
-         //el"post" no necesita "data" sino no funiciona el "get"
-       // data: {nombre:"Ruben",nivel_de_cafe:"medio"},
+        //el"post" no necesita "data" sino no funiciona el "get"
+        data: datoPelicula,         
         // Tipo de peticion http
-        type:"GET",
+        type:"POST",
         // tipo de dato esperado
         dataType: "json",
         // URL de comunicación con el servicio
-         url: "https://jsonplaceholder.typicode.com/users"
-      // url: "http://localhost:3000/animales"
+      //  url: "https://jsonplaceholder.typicode.com/users"
+       url: "http://localhost:3000/peliculas"
     })
-    .done(peticionCompletada)
+    .done(anadeCompletada)
     .fail(peticionFallida);
+}
+
+
+function anadeCompletada(data, status,jqXHR){
+    alert("Petición completada con status "+ status 
+    +" : " + data);
+   // $("#contenido_de_ajax").html(data[0].nombre);
+   // $("#contenido_de_ajax").html(data[7].username);
+    //var content = $( data ).find( "#content" );
+    $( "#result" ).empty().append( data );
 }
 
 function peticionCompletada(data, status,jqXHR){
     alert("Petición completada con status "+ status 
     +" : " + data);
-    $("#contenido_de_ajax").html(data[0].nombre)
+   // $("#contenido_de_ajax").html(data[0].nombre);
    // $("#contenido_de_ajax").html(data[7].username);
+
+$.each(data, function(i, item) {
+    var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
+        var $tr = $('<tr>').append( 
+              $('<td>').html($input),         
+            $('<td>').text(item.id),
+            $('<td>').text(item.titulo),
+            $('<td>').text(item.director),
+            $('<td>').text(item.sinopsis),
+            $('<td>').text(item.fecha)
+        ); //.appendTo('#records_table');
+        $('table').append($tr);
+       // console.log($tr.wrap('<p>').html());
+     //  alert(item);
+    });
+
+
 }
+
+
+function ModificarpeticionAjaxGenerica(){
+    var datoPelicula = {
+            titulo: $("#titulo").val(),
+            director:$("#director").val(),
+            sinopsis:$("#sinopsis").val(),
+            fecha:$("#fecha").val()
+        }
+
+    $.ajax({
+        // Puede ser una cadena, un array o un object de JS
+        // nombre=Ruben&nivel_de_cafe=medio
+        //el"post" no necesita "data" sino no funiciona el "get"
+        data: datoPelicula,         
+        // Tipo de peticion http
+        type:"POST",
+        // tipo de dato esperado
+        dataType: "json",
+        // URL de comunicación con el servicio
+      //  url: "https://jsonplaceholder.typicode.com/users"
+       url: "http://localhost:3000/peliculas"
+    })
+    .done(modificaCompletada)
+    .fail(peticionFallida);
+}
+
+
+function modificaCompletada(data, status,jqXHR){
+    alert("Petición completada con status "+ status 
+    +" : " + data);
+   // $("#contenido_de_ajax").html(data[0].nombre);
+   // $("#contenido_de_ajax").html(data[7].username);
+    //var content = $( data ).find( "#content" );
+    $( "#result" ).empty().append( data );
+}
+
 function peticionFallida(jqXHR,status,error){
-    alert.log("Error al procesar la petición" );
+    alert("Error al procesar la petición" );
     console.log("Status :" + status);
     console("Error! " + error);
 }
 
-function BorrarpeticionAjaxGenerica(){
-    $.ajax({
-        // Puede ser una cadena, un array o un object de JS
-        // nombre=Ruben&nivel_de_cafe=medio
-         //el"post" no necesita "data" sino no funiciona el "get"
-       // data: {nombre:"Ruben",nivel_de_cafe:"medio"},
-        // Tipo de peticion http
-        type:"GET",
-        // tipo de dato esperado
-        dataType: "json",
-        // URL de comunicación con el servicio
-       // url: "https://jsonplaceholder.typicode.com/users"
-       url: "http://localhost:3000/animales"
-    })
-    .done(peticionCompletada)
-    .fail(peticionFallida);
-}
 
 function presionFila(){
 /* como un componente para hacer onclick en una fila  */
@@ -87,6 +145,7 @@ function Guardar(){
     $("#descripcion").fadeOut("slow");
 
 }
+
 function Modificar(){
     //modificar el valor seleccionado
      $("#descripcion").fadeIn("slow");
@@ -96,21 +155,3 @@ function Borrar(){
      $("#descripcion").fadeIn("slow");
 }
 
-
-
-function GuardarpeticionAjaxGenerica(){
-    $.ajax({
-        // Puede ser una cadena, un array o un object de JS
-        // nombre=Ruben&nivel_de_cafe=medio
-        data: {nombre:"Ruben",nivel_de_cafe:"medio"},
-        // Tipo de peticion http
-        type:"GET",
-        // tipo de dato esperado
-        dataType: "json",
-        // URL de comunicación con el servicio
-       // url: "https://jsonplaceholder.typicode.com/users"
-       url: "http://localhost:3000/animales"
-    })
-    .done(peticionCompletada)
-    .fail(peticionFallida);
-}

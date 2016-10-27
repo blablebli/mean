@@ -9,31 +9,15 @@ calculadora = new Calculadora(0,0);
 
 function PintaResultado(valorNumero)
 {  
-  // concatena el valor a mostrar en pantalla el primer valor
+  
   if (operacionString == "" )
-    {
-        if (!punto){          
-           /* valorNumero = memoria + valorNumero;            
-            document.getElementById("txtresultado").value = valorNumero; 
-            memoria = document.getElementById("txtresultado").value;*/
+    {// concatena el valor a mostrar en pantalla el primer valor
+        if (!punto){  
              document.getElementById("txtresultado").value = document.getElementById("txtresultado").value + valorNumero; 
         }
     }
     else{ // concatena el valor a mostrar en pantalla en el segundo valor
-        if (!punto){
-
-          /*  if (!botonIgual)
-            {  */     //aqui si sigue haciendo operaciones despues de haber dado igual y tengo en memoria el valor anterior
-               
-                // document.getElementById("txtresultado").value = document.getElementById("txtresultado").value + valorNumero; 
- //document.getElementById("txtresultado").value = memoria + valorNumero; 
-
-
- // necesito tener en memoria el valor del total
-
- //si entra aqui cuando hace mas la primera vez no le puedo asociar ese valor que entra segundo en memoria tengo el valor priero
-                // memoria = valorNumero;
-
+        if (!punto){        
 
             // ha dado click en operacion y tengo el primer valor en memoria
             if (!seConvierteEnBotonIgual)
@@ -45,14 +29,10 @@ function PintaResultado(valorNumero)
             else
             { // Aqui el igual pinta el valor del resultado de la operacoin que viene en valor numero
                 // y el resultado lo guarde en memoria en la funcion de operaigual al final despues de realizar la operacion                       
-                document.getElementById("txtresultado").value =  valorNumero;           
-                //botonIgual= false; 
+                document.getElementById("txtresultado").value =  valorNumero;  
             }
-        }
-       // operacionString = "";  
-       // memoria =  valorNumero;    
+        }     
     } 
-
 }
 
 function PintaPunto(){
@@ -66,18 +46,16 @@ function PintaPunto(){
 
 function operacion(valorOperacion)
 {
-       // if (memoria !='');
-//guardo primer valor  una vez guardado paso valor.
+      
 if(!seConvierteEnBotonIgual){
     memoria = document.getElementById("txtresultado").value;
 // duda en lugar de memoria podría ser calculadora.clave1 y no necesito memoria
      document.getElementById("txtresultado").value="";
      operacionString  = valorOperacion; 
-    // PintaResultado("");
+   
       punto = false;
       seConvierteEnBotonIgual =true;
-     // memoria ="";   
-    //calculadora.prototype.sumar; en la parte de calculadora.js
+ 
 }else{
 operacionIgual(false);
 
@@ -86,11 +64,7 @@ operacionIgual(false);
 
 //recogo la operacion para delegar en calcladora.js
 function operacionIgual(DabotonIgual)
-{//si le doy al mas se tiene que guardar el 1, si 
-    //todo en caso de que me llegue igual 
-    //llamar a la calculadora con el valor de memoria el valor del display y sumarlo
-
-    //profesor
+{
     if (eval(DabotonIgual))
     {
         seConvierteEnBotonIgual= false;
@@ -125,8 +99,7 @@ function operacionIgual(DabotonIgual)
         calculadora.clave1= 0;
         calculadora.clave2 = 0;
         // paso despues de pintar resultado guardo su valor en memoria
-          memoria = document.getElementById("txtresultado").value;
-        
+          memoria = document.getElementById("txtresultado").value;        
 }
 
 
@@ -151,12 +124,12 @@ if (texto>0)
     {
         punto=false;
     }
-document.getElementById("txtresultado").value= document.getElementById("txtresultado").value.substring(0, texto-1);
+    document.getElementById("txtresultado").value= document.getElementById("txtresultado").value.substring(0, texto-1);
 }
 }
 
 function limpiarParcial()
 {
-document.getElementById("txtresultado").value ="";
- punto = false;
+    document.getElementById("txtresultado").value ="";
+    punto = false;
 }

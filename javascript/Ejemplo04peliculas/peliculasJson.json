@@ -1,0 +1,60 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "titulo": "Spiderman",
+      "director": "Tigre de bengala",
+      "sinopsis": "Muy buena peliculas",
+      "fecha": "27122016"
+    },
+    {
+      "id": 2,
+      "titulo": "Superman",
+      "director": "Tigre de bengala",
+      "sinopsis": "Vuela vuela",
+      "fecha": "17022015"
+    },
+    {
+      "id": 3,
+      "titulo": "Hombre invisible",
+      "director": "Tigre de bengala",
+      "sinopsis": "A que no me vex",
+      "fecha": "02032014"
+    },
+    {
+      "id": 4,
+      "titulo": "Hulk",
+      "director": "Tigre de bengala",
+      "sinopsis": "Que fuerte soy",
+      "fecha": "11052019"
+    },
+    {
+      "titulo": "asdfa",
+      "director": "adfa",
+      "sinopsis": "adfasd",
+      "fecha": "adfasd",
+      "id": 5
+    },
+    {
+      "titulo": "fasdfa",
+      "director": "adsf",
+      "sinopsis": "adsfa",
+      "fecha": "asdfasd",
+      "id": 6
+    },
+    {
+      "titulo": "ygdgfs",
+      "director": "sfdgsdfg",
+      "sinopsis": "sfg",
+      "fecha": "sfgs",
+      "id": 7
+    },
+    {
+      "titulo": "fghgd",
+      "director": "dghfg",
+      "sinopsis": "dgh",
+      "fecha": "dgh",
+      "id": 8
+    }
+  ]
+}

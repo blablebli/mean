@@ -17,7 +17,7 @@ Calculadora.prototype.restar =function restar(){
     }
 
 Calculadora.prototype.multiplicar =function multiplicar(){
-     returneval( parseInt(this.clave1) *  parseInt(this.clave2));
+     return eval( parseInt(this.clave1) *  parseInt(this.clave2));
       
     }
 

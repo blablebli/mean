@@ -7,8 +7,13 @@ function Calculadora(clave1, clave2){
 
 
 Calculadora.prototype.sumar = function sumar(){
-      return eval( parseInt(this.clave1) +  parseInt(this.clave2));
-     
+  if (comprueba_decimal())
+ {
+      return eval( parseFloat(this.clave1) +  parseFloat(this.clave2));
+ } else
+ {
+    return eval( parseInt(this.clave1) +  parseInt(this.clave2));
+ }  
     }
 
 Calculadora.prototype.restar =function restar(){
@@ -26,6 +31,17 @@ Calculadora.prototype.dividir =function dividir(){
       {    
       return   eval( parseInt(this.clave1) /  parseInt(this.clave2));
        
+      }
+    }
+
+   function comprueba_decimal()
+    {
+      if (clave1.includes(".") ||clave2.includes("."))
+      {
+          return true;
+      }else
+      {
+        return false;
       }
     }
 

@@ -117,12 +117,23 @@ function ModificarpeticionAjaxGenerica(){
 
 
 function modificaCompletada(data, status,jqXHR){
-    alert("Petición completada con status "+ status 
-    +" : " + data);
-   // $("#contenido_de_ajax").html(data[0].nombre);
-   // $("#contenido_de_ajax").html(data[7].username);
-    //var content = $( data ).find( "#content" );
-    $( "#result" ).empty().append( data );
+ $.each(data, function(i, item) {
+     if (i==)
+     
+    var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
+        var $tr = $('<tr>').append( 
+              $('<td>').html($input),         
+            $('<td>').text(item.id),
+            $('<td>').text(item.titulo),
+            $('<td>').text(item.director),
+            $('<td>').text(item.sinopsis),
+            $('<td>').text(item.fecha)
+        ); //.appendTo('#records_table');
+        $('table').append($tr);
+       // console.log($tr.wrap('<p>').html());
+     //  alert(item);
+    });
+
 }
 
 function peticionFallida(jqXHR,status,error){

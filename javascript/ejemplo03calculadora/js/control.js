@@ -12,12 +12,12 @@ function PintaResultado(valorNumero)
   
   if (operacionString == "" )
     {// concatena el valor a mostrar en pantalla el primer valor
-        if (!punto){  
+       // if (!punto){  
              document.getElementById("txtresultado").value = document.getElementById("txtresultado").value + valorNumero; 
-        }
+       // }
     }
     else{ // concatena el valor a mostrar en pantalla en el segundo valor
-        if (!punto){        
+        //if (!punto){        
 
             // ha dado click en operacion y tengo el primer valor en memoria
             if (!seConvierteEnBotonIgual)
@@ -31,14 +31,16 @@ function PintaResultado(valorNumero)
                 // y el resultado lo guarde en memoria en la funcion de operaigual al final despues de realizar la operacion                       
                 document.getElementById("txtresultado").value =  valorNumero;  
             }
-        }     
+       // }     
     } 
 }
 
-function PintaPunto(){
+function PintaPunto(valorPunto){
     if (!punto)
     {
         punto = true;
+         document.getElementById("txtresultado").value = document.getElementById("txtresultado").value + valorPunto; 
+
     }else{
         alert ("No puede haber 2 puntos");
     }
@@ -54,10 +56,13 @@ if(!seConvierteEnBotonIgual){
      operacionString  = valorOperacion; 
    
       punto = false;
-      seConvierteEnBotonIgual =true;
+    //  seConvierteEnBotonIgual =true;
  
 }else{
-operacionIgual(false);
+     if(document.getElementById("txtresultado").value!="")
+     {
+        operacionIgual(false);
+     }
 
 }
 }

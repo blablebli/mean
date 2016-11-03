@@ -55,6 +55,13 @@
       "sinopsis": "dgh",
       "fecha": "dgh",
       "id": 8
+    },
+    {
+      "titulo": "prueba9",
+      "director": "asdfasd",
+      "sinopsis": "asdfasd",
+      "fecha": 12012016,
+      "id": 9
     }
   ]
 }

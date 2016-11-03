@@ -65,12 +65,54 @@ function anadeCompletada(data, status,jqXHR){
     $( "#result" ).empty().append( data );
 }
 
-function peticionCompletada(data, status,jqXHR){
-    alert("Petición completada con status "+ status 
-    +" : " + data);
-   // $("#contenido_de_ajax").html(data[0].nombre);
-   // $("#contenido_de_ajax").html(data[7].username);
+function abreTabla()
+{
 
+    $("#mitable") ="";
+    var $thead = $('<thead>').append( $('<td>').text(id22),  $('<td>').text(titulo), $('<td>').text(director), $('<td>').text(sinopsis), $('<td>').text(fecha) ) 
+     
+   $("#mitable").append($thead);
+
+   var $tbody =  $('<tbody>');  
+
+   $("#mitable").append($tbody);   
+                
+}
+
+/*function cierraTabla()
+{
+ $('table')= "" </thead>
+                    <tbody>
+
+}*/
+
+function peticionCompletada(data, status,jqXHR){
+
+alert("Petición completada con status "+ status  +" : " + data); 
+abreTabla();
+$.each(data, function(i, item) {
+    var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
+        var $tr = $('<tr>').append( 
+              $('<td>').html($input),         
+            $('<td>').text(item.id),
+            $('<td>').text(item.titulo),
+            $('<td>').text(item.director),
+            $('<td>').text(item.sinopsis),
+            $('<td>').text(item.fecha)
+        ); //.appendTo('#records_table');
+        $("#mitable").append($tr);
+       // console.log($tr.wrap('<p>').html());
+     //  alert(item);
+    });
+
+    var $tbody =  $('</tbody>')  ;   
+    $("#mitable").append($tbody);  
+}
+
+function peticionCompletada1(data, status,jqXHR){
+
+alert("Petición completada con status "+ status  +" : " + data); 
+abreTabla();
 $.each(data, function(i, item) {
     var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
         var $tr = $('<tr>').append( 
@@ -86,7 +128,8 @@ $.each(data, function(i, item) {
      //  alert(item);
     });
 
-
+    var $tbody =  $('</tbody>')  ;   
+    $('table').append($tbody);  
 }
 
 
@@ -118,7 +161,7 @@ function ModificarpeticionAjaxGenerica(){
 
 function modificaCompletada(data, status,jqXHR){
  $.each(data, function(i, item) {
-     if (i==)
+  //   if (i==)
      
     var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
         var $tr = $('<tr>').append( 

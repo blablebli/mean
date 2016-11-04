@@ -5,25 +5,43 @@ function initializeEvents(){
     $("#boton0").click(VerpeticionAjaxGenerica);
     $("#boton1").click(GuardarpeticionAjaxGenerica);
     $("#boton2").click(ModificarpeticionAjaxGenerica);
-   // $("#boton3").click(BorrarpeticionAjaxGenerica);
+    $("#boton3").click(BorrarpeticionAjaxGenerica);
     
 }
 
+$(document).ready(function() { 
+      $('#1').change(function() {
+        if($(this).is(":checked")) {
+            //var returnVal = confirm("Are you sure?");
+           // $(this).attr("checked", returnVal);
+           alert("check");
+        }
+         
+    });
+});
 
+function presionFila(){
+    let filaActual = $(this);  
+   // filaActual.css("background-color", "#ff0000");
+   //<--CLASS EN LUGAR DE METERLE UN CSS DIRECTAMENTE Y ASI LUEGO LE DIGO QUE RECORRA LA TABLAS EL QUE TENGA EL CSS Y YA ESTARIA-->
+    /*alert($mitable.)
+    if ($('#miTabla >tbody >tr').length == 0){
+    alert ( "No hay filas en la tabla!!" );
+}*/
+    filaActual.css("background-color", "#ff0000");
+    filaActual.class="miclase";
+           /*  $("#id").val() = $(this)[0].val();
+             $("#titulo").val() = $(this)[1].val();
+           $("#director").val() = $(this)[2].val();
+           $("#sinopsis").val() = $(this)[3].val();
+            $("#fecha").val()  = $(this)[4].val();*/
+}
 
 function VerpeticionAjaxGenerica(){
-    $.ajax({
-        // Puede ser una cadena, un array o un object de JS
-        // nombre=Ruben&nivel_de_cafe=medio
-        //el"post" no necesita "data" sino no funiciona el "get"
-       // data: {nombre:"Ruben",nivel_de_cafe:"medio"},
-        // Tipo de peticion http
-        type:"GET",
-        // tipo de dato esperado
+    $.ajax({       
+        type:"GET",        
         dataType: "json",
-        // URL de comunicación con el servicio
-      //  url: "https://jsonplaceholder.typicode.com/users"
-       url: "http://localhost:3000/peliculas"
+        url: "http://localhost:3000/peliculas"
     })
     .done(peticionCompletada)
     .fail(peticionFallida);
@@ -63,104 +81,97 @@ function anadeCompletada(data, status,jqXHR){
    // $("#contenido_de_ajax").html(data[7].username);
     //var content = $( data ).find( "#content" );
     $( "#result" ).empty().append( data );
+ VerpeticionAjaxGenerica();
+    
 }
 
-function abreTabla()
-{
-
-    $("#mitable") ="";
-    var $thead = $('<thead>').append( $('<td>').text(id22),  $('<td>').text(titulo), $('<td>').text(director), $('<td>').text(sinopsis), $('<td>').text(fecha) ) 
-     
-   $("#mitable").append($thead);
-
-   var $tbody =  $('<tbody>');  
-
-   $("#mitable").append($tbody);   
-                
-}
-
-/*function cierraTabla()
-{
- $('table')= "" </thead>
-                    <tbody>
-
-}*/
 
 function peticionCompletada(data, status,jqXHR){
 
-alert("Petición completada con status "+ status  +" : " + data); 
-abreTabla();
+//alert("Petición completada con status "+ status  +" : " + data); 
+//1º) borra la tabla 
+$("#mitable tr:gt(0)").remove();
+//2º) añado a la tabla los datos q recoge del json que esta en data
+
 $.each(data, function(i, item) {
-    var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
-        var $tr = $('<tr>').append( 
-              $('<td>').html($input),         
+    //var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
+      
+       var valor = $('<tr>').append( 
+             // $('<td>').html($input),         
             $('<td>').text(item.id),
             $('<td>').text(item.titulo),
             $('<td>').text(item.director),
             $('<td>').text(item.sinopsis),
             $('<td>').text(item.fecha)
         ); //.appendTo('#records_table');
-        $("#mitable").append($tr);
-       // console.log($tr.wrap('<p>').html());
-     //  alert(item);
+//        $tr =$("tr").click(presionFila);
+        $(valor).click(presionFila);
+        $("#mitable").append(valor);   
+      
+       
     });
-
-    var $tbody =  $('</tbody>')  ;   
-    $("#mitable").append($tbody);  
-}
-
-function peticionCompletada1(data, status,jqXHR){
-
-alert("Petición completada con status "+ status  +" : " + data); 
-abreTabla();
-$.each(data, function(i, item) {
-    var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
-        var $tr = $('<tr>').append( 
-              $('<td>').html($input),         
-            $('<td>').text(item.id),
-            $('<td>').text(item.titulo),
-            $('<td>').text(item.director),
-            $('<td>').text(item.sinopsis),
-            $('<td>').text(item.fecha)
-        ); //.appendTo('#records_table');
-        $('table').append($tr);
-       // console.log($tr.wrap('<p>').html());
-     //  alert(item);
-    });
-
-    var $tbody =  $('</tbody>')  ;   
-    $('table').append($tbody);  
 }
 
 
-function ModificarpeticionAjaxGenerica(){
-    var datoPelicula = {
+function ModificarpeticionAjaxGenerica(){  
+  /* var datoPelicula = {
+            id: $("#id").val(),
             titulo: $("#titulo").val(),
             director:$("#director").val(),
             sinopsis:$("#sinopsis").val(),
             fecha:$("#fecha").val()
+        }*/
+       var datoPelicula = {
+            titulo: "ppp",
+            director:"ssd",
+            sinopsis:"tt",
+            fecha:"12112016"
         }
 
-    $.ajax({
-        // Puede ser una cadena, un array o un object de JS
-        // nombre=Ruben&nivel_de_cafe=medio
-        //el"post" no necesita "data" sino no funiciona el "get"
-        data: datoPelicula,         
-        // Tipo de peticion http
-        type:"POST",
-        // tipo de dato esperado
+    $.ajax({      
+       data: datoPelicula, 
+        type:"PUT",     
         dataType: "json",
-        // URL de comunicación con el servicio
-      //  url: "https://jsonplaceholder.typicode.com/users"
-       url: "http://localhost:3000/peliculas"
+        url: "http://localhost:3000/peliculas/4"
     })
     .done(modificaCompletada)
     .fail(peticionFallida);
 }
 
 
-function modificaCompletada(data, status,jqXHR){
- $.each(data, function(i, item) {
+function BorrarpeticionAjaxGenerica(){  
+ /*  var datoPelicula = {
+            id: $("#id").val(),
+            titulo: $("#titulo").val(),
+            director:$("#director").val(),
+            sinopsis:$("#sinopsis").val(),
+            fecha:$("#fecha").val()
+        }*/
+       /* datoPelicula = {
+            id: 4,
+            titulo: "ppp",
+            director:"ssd",
+            sinopsis:"tt",
+            fecha:"12112016"
+        }*/
+    $.ajax({      
+        type:"DELETE",     
+        dataType: "json",
+        url: "http://localhost:3000/peliculas/11"
+    })
+    .done(borrarCompletada)
+    .fail(peticionFallida);
+}
+
+function borrarCompletada(){
+    alert("Lo ha hecho y debe de recargar la pagina");
+    VerpeticionAjaxGenerica();
+}
+
+function modificaCompletada(){
+    alert("Lo ha hecho y debe de recargar la pagina");
+    VerpeticionAjaxGenerica();
+/* $.each(data, function(i, item) {
   //   if (i==)
      
     var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
@@ -175,7 +186,7 @@ function modificaCompletada(data, status,jqXHR){
         $('table').append($tr);
        // console.log($tr.wrap('<p>').html());
      //  alert(item);
-    });
+    });*/
 
 }
 

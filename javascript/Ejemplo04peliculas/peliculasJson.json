@@ -22,11 +22,11 @@
       "fecha": "02032014"
     },
     {
-      "id": 4,
-      "titulo": "Hulk",
-      "director": "Tigre de bengala",
-      "sinopsis": "Que fuerte soy",
-      "fecha": "11052019"
+      "titulo": "ppp",
+      "director": "ssd",
+      "sinopsis": "tt",
+      "fecha": 12112016,
+      "id": 4
     },
     {
       "titulo": "asdfa",
@@ -62,6 +62,27 @@
       "sinopsis": "asdfasd",
       "fecha": 12012016,
       "id": 9
+    },
+    {
+      "titulo": "peli12",
+      "director": 1234231,
+      "sinopsis": 132423,
+      "fecha": 1234123,
+      "id": 12
+    },
+    {
+      "titulo": "peli12",
+      "director": 1234231,
+      "sinopsis": 132423,
+      "fecha": 1234123,
+      "id": 13
+    },
+    {
+      "titulo": "peli13",
+      "director": "adfas",
+      "sinopsis": "adsfa",
+      "fecha": 123412332,
+      "id": 14
     }
   ]
 }

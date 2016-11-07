@@ -2,17 +2,17 @@
   "peliculas": [
     {
       "id": 1,
-      "titulo": "Spiderman",
+      "titulo": "Spiderman2",
       "director": "Tigre de bengala",
       "sinopsis": "Muy buena peliculas",
-      "fecha": "27122016"
+      "fecha": 27122016
     },
     {
       "id": 2,
-      "titulo": "Superman",
+      "titulo": "Superman11",
       "director": "Tigre de bengala",
       "sinopsis": "Vuela vuela",
-      "fecha": "17022015"
+      "fecha": 17022015
     },
     {
       "id": 3,
@@ -22,32 +22,11 @@
       "fecha": "02032014"
     },
     {
-      "titulo": "ppp",
-      "director": "ssd",
-      "sinopsis": "tt",
-      "fecha": 12112016,
-      "id": 4
-    },
-    {
-      "titulo": "asdfa",
-      "director": "adfa",
-      "sinopsis": "adfasd",
-      "fecha": "adfasd",
-      "id": 5
-    },
-    {
-      "titulo": "fasdfa",
-      "director": "adsf",
-      "sinopsis": "adsfa",
-      "fecha": "asdfasd",
-      "id": 6
-    },
-    {
+      "id": 7,
       "titulo": "ygdgfs",
       "director": "sfdgsdfg",
       "sinopsis": "sfg",
-      "fecha": "sfgs",
-      "id": 7
+      "fecha": "sfgs"
     },
     {
       "titulo": "fghgd",
@@ -57,11 +36,11 @@
       "id": 8
     },
     {
-      "titulo": "prueba9",
+      "id": 9,
+      "titulo": "prueba999",
       "director": "asdfasd",
       "sinopsis": "asdfasd",
-      "fecha": 12012016,
-      "id": 9
+      "fecha": 12012016
     },
     {
       "titulo": "peli12",
@@ -78,11 +57,25 @@
       "id": 13
     },
     {
-      "titulo": "peli13",
+      "id": 14,
+      "titulo": "pelimodificada",
       "director": "adfas",
-      "sinopsis": "adsfa",
-      "fecha": 123412332,
-      "id": 14
+      "sinopsis": "adsfa11",
+      "fecha": 123412332
+    },
+    {
+      "id": 15,
+      "titulo": "peliasdgjkasgh",
+      "director": "wert",
+      "sinopsis": "rewte11223",
+      "fecha": 23453
+    },
+    {
+      "titulo": "peli17",
+      "director": "wert",
+      "sinopsis": "rewte11",
+      "fecha": 23453,
+      "id": 16
     }
   ]
 }

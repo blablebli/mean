@@ -6,12 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MiComponenteNuevoComponent } from './mi-componente-nuevo/mi-componente-nuevo.component';
 import { Ejemplo01NgforNgifComponent } from './ejemplo01-ngfor-ngif/ejemplo01-ngfor-ngif.component';
+import { NumerosPrimosComponent } from './numeros-primos/numeros-primos.component';
+import { NumerosPrimosConServicioComponent } from './numeros-primos-con-servicio/numeros-primos-con-servicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MiComponenteNuevoComponent,
-    Ejemplo01NgforNgifComponent
+    Ejemplo01NgforNgifComponent,
+    NumerosPrimosComponent,
+    NumerosPrimosConServicioComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +23,9 @@ import { Ejemplo01NgforNgifComponent } from './ejemplo01-ngfor-ngif/ejemplo01-ng
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent, Ejemplo01NgforNgifComponent ]
+ // bootstrap: [AppComponent, Ejemplo01NgforNgifComponent,MiComponenteNuevoComponent ,NumerosPrimosComponent ]
+ // bootstrap: [AppComponent, NumerosPrimosComponent ]
+ bootstrap: [AppComponent,NumerosPrimosComponent ]
+
 })
 export class AppModule { }

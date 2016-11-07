@@ -14,7 +14,7 @@ $(document).ready(function() {
         if($(this).is(":checked")) {
             //var returnVal = confirm("Are you sure?");
            // $(this).attr("checked", returnVal);
-           alert("check");
+           console.log("check");
         }
          
     });
@@ -24,24 +24,26 @@ function presionFila(){
     let filaActual = $(this);  
    // filaActual.css("background-color", "#ff0000");
    //<--CLASS EN LUGAR DE METERLE UN CSS DIRECTAMENTE Y ASI LUEGO LE DIGO QUE RECORRA LA TABLAS EL QUE TENGA EL CSS Y YA ESTARIA-->
-    /*alert($mitable.)
+    /*console.log($mitable.)
     if ($('#miTabla >tbody >tr').length == 0){
-    alert ( "No hay filas en la tabla!!" );
+    console.log ( "No hay filas en la tabla!!" );
 }*/
-    filaActual.css("background-color", "#ff0000");
-    filaActual.class="miclase";
-           /*  $("#id").val() = $(this)[0].val();
-             $("#titulo").val() = $(this)[1].val();
-           $("#director").val() = $(this)[2].val();
-           $("#sinopsis").val() = $(this)[3].val();
-            $("#fecha").val()  = $(this)[4].val();*/
+    filaActual.css("background-color", "#00ff00");
+    filaActual.class="miclase"; 
+ 
+        $("#id").val($(this).find('td:eq(0)').text());
+        $('#titulo').val($(this).find('td:eq(1)').text()); 
+        $("#director").val($(this).find('td:eq(2)').text());
+        $("#sinopsis").val($(this).find('td:eq(3)').text());
+        $("#fecha").val($(this).find('td:eq(4)').text());  
+   
 }
 
 function VerpeticionAjaxGenerica(){
     $.ajax({       
         type:"GET",        
         dataType: "json",
-        url: "http://localhost:3000/peliculas"
+        url: "http://localhost:3000/peliculas?date="+new Date()
     })
     .done(peticionCompletada)
     .fail(peticionFallida);
@@ -75,7 +77,7 @@ function GuardarpeticionAjaxGenerica(){
 
 
 function anadeCompletada(data, status,jqXHR){
-    alert("Petición completada con status "+ status 
+    console.log("Petición completada con status "+ status 
     +" : " + data);
    // $("#contenido_de_ajax").html(data[0].nombre);
    // $("#contenido_de_ajax").html(data[7].username);
@@ -87,22 +89,25 @@ function anadeCompletada(data, status,jqXHR){
 
 
 function peticionCompletada(data, status,jqXHR){
-
-//alert("Petición completada con status "+ status  +" : " + data); 
+console.log(data);
+//console.log("Petición completada con status "+ status  +" : " + data); 
 //1º) borra la tabla 
 $("#mitable tr:gt(0)").remove();
 //2º) añado a la tabla los datos q recoge del json que esta en data
 
 $.each(data, function(i, item) {
     //var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
-      
+      var $buttonModifica = $("<input type='button' id='Modifica'+i value='Modificar'/>");
+      var $buttonBorra = $("<input type='button' id='Borra'+i value='Borrar'/>");
        var valor = $('<tr>').append( 
              // $('<td>').html($input),         
             $('<td>').text(item.id),
             $('<td>').text(item.titulo),
             $('<td>').text(item.director),
             $('<td>').text(item.sinopsis),
-            $('<td>').text(item.fecha)
+            $('<td>').text(item.fecha),
+            $('<td>').html($buttonModifica),
+             $('<td>').html($buttonBorra)
         ); //.appendTo('#records_table');
 //        $tr =$("tr").click(presionFila);
         $(valor).click(presionFila);
@@ -114,27 +119,28 @@ $.each(data, function(i, item) {
 
 
 function ModificarpeticionAjaxGenerica(){  
-  /* var datoPelicula = {
+   var datoPelicula = {
             id: $("#id").val(),
             titulo: $("#titulo").val(),
             director:$("#director").val(),
             sinopsis:$("#sinopsis").val(),
             fecha:$("#fecha").val()
-        }*/
-       var datoPelicula = {
+        }
+       /*var datoPelicula = {
             titulo: "ppp",
             director:"ssd",
             sinopsis:"tt",
             fecha:"12112016"
-        }
-
+        }*/
+       var  urlModifica = "http://localhost:3000/peliculas/" + $("#id").val()
+//console.log(urlModifica);
     $.ajax({      
        data: datoPelicula, 
         type:"PUT",     
         dataType: "json",
-        url: "http://localhost:3000/peliculas/4"
+        url: urlModifica
     })
-    .done(modificaCompletada)
+    .done(modificaCompletada(urlModifica))
     .fail(peticionFallida);
 }
 
@@ -154,57 +160,37 @@ function BorrarpeticionAjaxGenerica(){
             sinopsis:"tt",
             fecha:"12112016"
         }*/
+        var  urlBorra = "http://localhost:3000/peliculas/" + $("#id").val()
     $.ajax({      
         type:"DELETE",     
         dataType: "json",
-        url: "http://localhost:3000/peliculas/11"
+        url: urlBorra
     })
-    .done(borrarCompletada)
+    .done(borrarCompletada($("#id").val()))
     .fail(peticionFallida);
 }
 
-function borrarCompletada(){
-    alert("Lo ha hecho y debe de recargar la pagina");
+function borrarCompletada(valor){
+    console.log("Lo ha borrado y debe de recargar la pagina" + valor);
     VerpeticionAjaxGenerica();
 }
 
-function modificaCompletada(){
-    alert("Lo ha hecho y debe de recargar la pagina");
+function modificaCompletada(valor){
+    console.log("Lo ha modificado y debe de recargar la pagina" + valor);
+//    location.reload();
     VerpeticionAjaxGenerica();
-/* $.each(data, function(i, item) {
-  //   if (i==)
      
-    var $input = $("<input type='checkbox' id="+i+" value='first_checkbox'/>");
-        var $tr = $('<tr>').append( 
-              $('<td>').html($input),         
-            $('<td>').text(item.id),
-            $('<td>').text(item.titulo),
-            $('<td>').text(item.director),
-            $('<td>').text(item.sinopsis),
-            $('<td>').text(item.fecha)
-        ); //.appendTo('#records_table');
-        $('table').append($tr);
-       // console.log($tr.wrap('<p>').html());
-     //  alert(item);
-    });*/
 
 }
 
 function peticionFallida(jqXHR,status,error){
-    alert("Error al procesar la petición" );
+    console.log("Error al procesar la petición" );
     console.log("Status :" + status);
     console("Error! " + error);
 }
 
 
-function presionFila(){
-/* como un componente para hacer onclick en una fila  */
-//$(tr) no lo puedo hacer pq seria para todas las filas */
-    let filaActual = $(this); 
-    // cojo el this para que me coja su fila que le he dado click
-    filaActual.css("background-color", "#ff0000");
-}
-
+/*
 function Guardar(){
     //guarda los datos en la tabla los metidos por campso
     $("#descripcion").fadeOut("slow");
@@ -219,4 +205,4 @@ function Borrar(){
     //borrar la/(s) fila(s)
      $("#descripcion").fadeIn("slow");
 }
-
+*/

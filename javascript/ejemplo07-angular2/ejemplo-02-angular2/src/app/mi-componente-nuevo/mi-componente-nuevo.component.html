@@ -1,3 +1,23 @@
 <p>
-  mi-componente-nuevo works!
-</p>
+ <!--  1ºLeo una variable q he definido en el ts mediante doble llaves--> 
+  
+  mi-componente-nuevo works32!:_{{varaibleDeInstancia}}
+</p
+<br/>
+<!--  3ºLe añado al boton un evento click definido en angular-->
+<button (click)="cambiarEstadoInformacion()">Mostrar u ocultar informacion </button>
+<br/>
+<!--  4ºLe meto el array los valores y cuando le de al boton me deberia mostra la lsita--> 
+<span *ngIf="mostrarInformacion">
+    <li>Informacion Mostrada</li>
+    </span>
+    <br/>
+<ul>
+   <!--  2ºLe meto el array los valores--> 
+  <li *ngFor="let numbero of tomaArray">
+    <!-- 5le meto a los numeros que me muestre el color-->
+    <span [ngStyle] ="{color:colorEnPares(numero)}"> 
+      {{numero}}
+    </span>
+    </li>
+  </ul>

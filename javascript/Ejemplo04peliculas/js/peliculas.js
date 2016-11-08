@@ -158,10 +158,10 @@ function ModificarpeticionAjaxGenerica(){
         url: urlModifica
     })
     .done(modificaCompletada(urlModifica))
-    .fail(peticionFallida)
+    .fail(peticionFallida)/*
     .when(timer, ajax).done(function() {
   
-    });
+    })*/;
 }
 
 

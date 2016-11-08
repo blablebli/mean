@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works 3!';
  // console.log("text");
+  numerillo: number = 7;// le meto esta ppdad a mi subcomponente q tiene un input
 }

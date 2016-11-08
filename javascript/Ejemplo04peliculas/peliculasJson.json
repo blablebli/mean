@@ -1,60 +1,18 @@
 {
   "peliculas": [
     {
-      "id": 1,
-      "titulo": "Spiderman2",
-      "director": "Tigre de bengala",
-      "sinopsis": "Muy buena peliculas",
-      "fecha": 27122016
-    },
-    {
-      "id": 2,
-      "titulo": "Superman11",
-      "director": "Tigre de bengala",
-      "sinopsis": "Vuela vuela",
-      "fecha": 17022015
-    },
-    {
       "id": 3,
-      "titulo": "Hombre invisible",
+      "titulo": "Hombre invisible2",
       "director": "Tigre de bengala",
       "sinopsis": "A que no me vex",
       "fecha": "02032014"
     },
     {
       "id": 7,
-      "titulo": "ygdgfs",
+      "titulo": "algo2",
       "director": "sfdgsdfg",
       "sinopsis": "sfg",
       "fecha": "sfgs"
-    },
-    {
-      "titulo": "fghgd",
-      "director": "dghfg",
-      "sinopsis": "dgh",
-      "fecha": "dgh",
-      "id": 8
-    },
-    {
-      "id": 9,
-      "titulo": "prueba999",
-      "director": "asdfasd",
-      "sinopsis": "asdfasd",
-      "fecha": 12012016
-    },
-    {
-      "titulo": "peli12",
-      "director": 1234231,
-      "sinopsis": 132423,
-      "fecha": 1234123,
-      "id": 12
-    },
-    {
-      "titulo": "peli12",
-      "director": 1234231,
-      "sinopsis": 132423,
-      "fecha": 1234123,
-      "id": 13
     },
     {
       "id": 14,
@@ -62,20 +20,6 @@
       "director": "adfas",
       "sinopsis": "adsfa11",
       "fecha": 123412332
-    },
-    {
-      "id": 15,
-      "titulo": "peliasdgjkasgh",
-      "director": "wert",
-      "sinopsis": "rewte11223",
-      "fecha": 23453
-    },
-    {
-      "titulo": "peli17",
-      "director": "wert",
-      "sinopsis": "rewte11",
-      "fecha": 23453,
-      "id": 16
     }
   ]
 }

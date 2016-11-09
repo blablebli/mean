@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./numeros-primos-leyenda.component.css']
 })
 export class NumerosPrimosLeyendaComponent implements OnInit {
-
+  mostrarInformacion: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+ cambiarEstadoInformacion():void{
+    this.mostrarInformacion = !this.mostrarInformacion;
+  }
 }

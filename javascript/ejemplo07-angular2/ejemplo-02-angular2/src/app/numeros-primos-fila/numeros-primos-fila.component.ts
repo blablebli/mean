@@ -1,19 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-numeros-primos-fila',
   templateUrl: './numeros-primos-fila.component.html',
   styleUrls: ['./numeros-primos-fila.component.css'],
-  inputs:['numero']// el input indica lo que va a recibir alguien le mandara a traves de numero
+  inputs:['numero'],// el input indica lo que va a recibir alguien le mandara a traves de numero
   // que corresponde al html pq yo le quiero pasar el numero desde fuera no va a ser el 0 que me habia definido
   //antes le llamare las veces q quiera y con el valor q sea
+  outputs:['eventoMostrar']
 })
 export class NumerosPrimosFilaComponent implements OnInit {
 
  private numero: number = 0;
+ private eventoMostrar: EventEmitter<boolean> = new EventEmitter<boolean>();
+ private mostrarContenido : boolean= false;
   constructor() { }
 
   ngOnInit() {
   }
+
+//Aqui disparo el evento
+
+enviarNotificacion():void{
+  //hago el inverso
+  this.mostrarContenido =!this.mostrarContenido;
+  this.eventoMostrar.emit(this.mostrarContenido);
+  console.log("Evento enviado!");
+}
 
 }

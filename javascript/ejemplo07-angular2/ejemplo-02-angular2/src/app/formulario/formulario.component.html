@@ -1,0 +1,34 @@
+
+  <!--4º paso creo el formulario-->
+    
+    <form #form="ngForm" (ngSubmit)="enviarFormulario(form.value)">
+  <!-- con form.value q le paso en la funcion coge todos lo valores del formulario)-->
+<label> Titulo text: titulo</label>
+<input type="text" #titulo="ngModel" name="titulo" [(ngModel)]="libro.titulo" required/>
+<!-- #titulo le digo que ese atributo pertenece al modelo este campo diciendole q es ngModel-->
+ <!-- [(mgModel)]="libro.titulo" con esto estoy haciendo el databinding diciendo q el campo titulo pertence al modelo q le paso en el [(ngModel)] al atibutoo titulo del libro--> 
+ 
+ <br/>
+ <!-- Ahora del campo ngModel del titulo digo si es valido y/o esta vacio-->
+ <div [hidden]="titulo.valid || titulo.pristine"> titulo requerido</div>
+  <br/>
+<label> Titulo Radio: Autor</label>
+<label>  
+  <input type="radio" name="autor" value="JRRTolkien" [(ngModel)]="libro.autor"/> J.R.R.Tolkien
+ </label>
+ <label>  
+  <input type="radio" name="autor" value="Michael Ende" [(ngModel)]="libro.autor"/> Michael Ende
+ </label>
+  <br/>
+ <label>  
+  <input type="checkbox" name="autor" value="sinopsis" [(ngModel)]="libro.sinopsis"/> si no hay sinopsis
+ </label>
+
+ <br/>
+ <label> 
+   <!-- si el formulario tiene un campo no valido como el unico campo q he puesto obligatorio
+   es el titulo en cuanto lo ponga funcionara--> 
+<button type="submit" [disabled]="form.invalid">Enviar</button>
+    </label>
+
+  </form>

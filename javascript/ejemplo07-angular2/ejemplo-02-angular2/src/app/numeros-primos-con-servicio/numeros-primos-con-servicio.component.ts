@@ -5,8 +5,8 @@ import{NumerosPrimosService} from '../numeros-primos.service';
 
 @Component({
   selector: 'app-numeros-primos-con-servicio',
-  templateUrl: './numeros-primos.component-con-servicio.html',
-  styleUrls: ['./numeros-primos.component-con-servicio.css'],
+  templateUrl: './numeros-primos-con-servicio.component.html',
+  styleUrls: ['./numeros-primos-con-servicio.component.css'],   
   providers: [NumerosPrimosService] // del import lo q le he dicho que meta
   //cuando creee la clase va ainyectar el proveedor 
 })
@@ -18,7 +18,7 @@ export class NumerosPrimosConServicioComponent implements OnInit {
 
     this.listaDeNumeros = this.numerosPrimosService.listaDeNumeros;
   }
-
+/*
 colorEnDistintosEstados(numero: number):string{
   //Como le pase al constructor el numeroPrimo y no le hecho new este es singleton. 
   // si le hiciera dentro del constructor un new no seria singleton//y aqui lo puedo utilizar ya
@@ -30,13 +30,14 @@ colorEnDistintosEstados(numero: number):string{
       } else{
         return "blue"; 
       }
-  }
+  }*/
 
+ /* cambiarEstadoInformacion():void{
+    this.mostrarInformacion = !this.mostrarInformacion;
+  }*/
   
   ngOnInit() {
   }
-  cambiarEstadoInformacion():void{
-    this.mostrarInformacion = !this.mostrarInformacion;
-  }
+
 
 }

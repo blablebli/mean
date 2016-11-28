@@ -1,67 +1,99 @@
 {
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Iniciar",
             "type": "node",
             "request": "launch",
+            "name": "ejemplo-01-nodejs-base",
             "program": "${workspaceRoot}/ejemplo-01-nodejs-base.js",
-            "stopOnEntry": false,
-            "args": [],
+            "cwd": "${workspaceRoot}"
+        },         
+         {
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo-02-require",
+            "program": "${workspaceRoot}/ejemplo-02-require.js",
             "cwd": "${workspaceRoot}",
-            "preLaunchTask": null,
-            "runtimeExecutable": null,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "console": "internalConsole",
-            "sourceMaps": false,
-            "outFiles": []
+            "args":[
+                "ejemplo-02-require.js"
+            ]
         },
          {
-            "name": "Ejemplo 03 -fileSystem sincrono",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/ejemplo-02-require.js",
-            "stopOnEntry": false,
-            //le paso un parametro extra q es el q va a leer q es el nombre del fichero suyo y sera el argv[2]
-            "args": ["ejemplo-02-require.js"],
+            "name": "ejemplo-03-async",
+            "program": "${workspaceRoot}/ejemplo-03-async.js",
             "cwd": "${workspaceRoot}",
-            "preLaunchTask": null,
-            "runtimeExecutable": null,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "console": "internalConsole",
-            "sourceMaps": false,
-            "outFiles": []
+            "args":[
+                "ejemplo-03-async.js"
+            ]
         },
         {
-            "name": "Asociar",
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo-04-listar-fichero",
+            "program": "${workspaceRoot}/ejemplo-04-listar-fichero.js",
+            "cwd": "${workspaceRoot}",
+            "args":[
+                "ejemplo-04-listar-fichero.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo-05-async",
+            "program": "${workspaceRoot}/ejemplo-03-async.js",
+            "cwd": "${workspaceRoot}",
+            "args":[
+                "ejemplo-03-async.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo06-http",
+            "program": "${workspaceRoot}/ejemplo06-http",
+            "cwd": "${workspaceRoot}",
+            "args":[
+                "ejemplo06-http"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo-07-http-pipe-bl",
+            "program": "${workspaceRoot}/ejemplo-07-http-pipe-bl.js",
+            "cwd": "${workspaceRoot}"            
+        },
+         {
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo-08-http-async",
+            "program": "${workspaceRoot}/ejemplo-08-http-async.js",
+            "cwd": "${workspaceRoot}"            
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo-09-server",
+            "program": "${workspaceRoot}/ejemplo-09-server.js",
+            "cwd": "${workspaceRoot}"            
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ejemplo-10-file-server",
+            "program": "${workspaceRoot}/ejemplo-10-file-server.js",
+            "cwd": "${workspaceRoot}"            
+        },
+        {
             "type": "node",
             "request": "attach",
-            "port": 5858,
-            "address": "localhost",
-            "restart": false,
-            "sourceMaps": false,
-            "outFiles": [],
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
-        },
-        {
             "name": "Asociar al proceso",
-            "type": "node",
-            "request": "attach",
-            "processId": "${command.PickProcess}",
-            "port": 5858,
-            "sourceMaps": false,
-            "outFiles": []
+            "port": 5858
         }
     ]
 }

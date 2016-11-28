@@ -20,7 +20,7 @@ export class ComponentePeliculasComponent implements OnInit {
   }
 
   dameUnaPelicula(numero: number):string{
- return  this.servicioPeliculasService.dameUnaPelicula(0);
+    return  this.servicioPeliculasService.dameUnaPelicula(0);
 //  return " ";
  }
 

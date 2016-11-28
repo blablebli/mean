@@ -1,14 +1,14 @@
 
   <!--4º paso creo el formulario-->
-    
+
     <form #form="ngForm" (ngSubmit)="enviarFormulario(form.value)">
   <!-- con form.value q le paso en la funcion coge todos lo valores del formulario)-->
 <label> Titulo text: titulo</label>
 <input type="text" #titulo="ngModel" name="titulo" [(ngModel)]="libro.titulo" required/>
 <!-- #titulo le digo que ese atributo pertenece al modelo este campo diciendole q es ngModel-->
- <!-- [(mgModel)]="libro.titulo" con esto estoy haciendo el databinding diciendo q el campo titulo pertence al modelo q le paso en el [(ngModel)] al atibutoo titulo del libro--> 
- 
- <br/>
+ <!-- [(mgModel)]="libro.titulo" con esto estoy haciendo el databinding diciendo
+  q el campo titulo pertenece al modelo q le paso en el [(ngModel)] al atibutoo titulo del libro--> 
+  <br/>
  <!-- Ahora del campo ngModel del titulo digo si es valido y/o esta vacio-->
  <div [hidden]="titulo.valid || titulo.pristine"> titulo requerido</div>
   <br/>

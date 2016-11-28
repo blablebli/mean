@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ComponentePeliculasComponent } from './componente-peliculas/componente-peliculas.component';
+//import { ComponentePeliculasComponent } from './componente-peliculas/componente-peliculas.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ComponentePeliculasComponent
+    AppComponent/*,
+    ComponentePeliculasComponent*/
   ],
   imports: [
     BrowserModule,
@@ -17,6 +17,6 @@ import { ComponentePeliculasComponent } from './componente-peliculas/componente-
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent, ComponentePeliculasComponent]
+  bootstrap: [AppComponent/*, ComponentePeliculasComponent*/]
 })
 export class AppModule { }

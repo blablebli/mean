@@ -1,0 +1,14 @@
+{
+  "name": "ejemplos_nodejs",
+  "version": "0.0.1",
+  "description": "bateria de ejemplos de codigo nodejs",
+  "main": "ejemplo-01-nodejs-base.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "blabebli74@yahoo.com",
+  "license": "ISC",
+  "dependencies": {
+    "bl": "^1.1.2"
+  }
+}

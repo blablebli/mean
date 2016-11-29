@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicePeliculasService } from '../service-peliculas.service';
-
+import { Pelicula } from '../modelo/pelicula';
 
 @Component({
   selector: 'app-componente-peliculas',
@@ -11,7 +11,7 @@ import { ServicePeliculasService } from '../service-peliculas.service';
 
 export class ComponentePeliculasComponent implements OnInit {
 
-  listaDePeliculas: string[];
+  listaDePeliculas: Pelicula[];
   //unaPelicula: string;
   mostrarInformacion: boolean = false;
   constructor(private servicioPeliculasService: ServicePeliculasService ) { 
@@ -19,11 +19,23 @@ export class ComponentePeliculasComponent implements OnInit {
                      
   }
 
-  dameUnaPelicula(numero: number):string{
+  dameUnaPelicula(numero: number):Pelicula{
     return  this.servicioPeliculasService.dameUnaPelicula(0);
 //  return " ";
  }
 
+   dameTodasPeliculas():Pelicula[]{
+    return  this.servicioPeliculasService.dameTodasPeliculas();
+
+ }
+
+
+ordenarPeliculas():Pelicula[]{
+
+return  this.servicioPeliculasService.ordenarPeliculas();
+
+
+}
   ngOnInit() {
   }
 

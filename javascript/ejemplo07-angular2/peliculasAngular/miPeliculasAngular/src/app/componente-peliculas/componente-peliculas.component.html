@@ -6,6 +6,24 @@
     <!-- </span>-->
   </li>
 </ul>
+<br/>
+<ul>
+  <li *ngFor="let peliculas of dameTodasPeliculas">
+   <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
+      {{peliculas}}
+    <!-- </span>-->
+  </li>
+</ul>
+<br/>
+
+<ul>
+  <li *ngFor="let peliculas of ordenarPeliculas">
+   <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
+      {{peliculas}}
+    <!-- </span>-->
+  </li>
+</ul>
+
   <!--<button (click)="cambiarEstadoInformacion()">Mostrar u ocultar informacion</button>
 <ul *ngIf="mostrarInformacion">
   <li>Numeros primos en <span style="color: red">ROJO</span></li>

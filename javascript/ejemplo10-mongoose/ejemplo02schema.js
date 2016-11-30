@@ -23,6 +23,10 @@ var LibroSchema = new Schema({
 //2 clientes q accedan no van a poder pq uno accede al documento y el otro a la coleccion asi no llegara ninguno a -1
 //inc --> incrementa 1 --> inc-1 decrementa.
 //aqui le digo creame la clase libro,
+
+//en tiempo real antes de crear el libro puedo añadir otros campos por ejemplo estado
+LibroSchema.add({estado: String});
+
 var Libro = mongoose.model("Libro", LibroSchema) 
 var lotr = new Libro(
     {

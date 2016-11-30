@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ComponentePeliculasComponent } from './componente-peliculas/componente-peliculas.component';
+import { PeliculasFilaComponent } from './peliculas-fila/peliculas-fila.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentePeliculasComponent
+    ComponentePeliculasComponent,
+    PeliculasFilaComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +19,8 @@ import { ComponentePeliculasComponent } from './componente-peliculas/componente-
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+ // bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ComponentePeliculasComponent]
+    //bootstrap: [AppComponent/*, ComponentePeliculasComponent, PeliculasFilaComponent */]
 })
 export class AppModule { }

@@ -1,3 +1,49 @@
 <p>
   componente-peliculas works!
 </p>
+
+<br/>
+<h1>Mis Peliculas por 3</h1>
+<ul>
+  <li *ngFor="let peliculas of listaDePeliculas">
+   <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
+   {{peliculas.titulo}}
+   
+    <!-- </span>-->
+  </li>
+</ul>
+<br/>
+<ul>
+  <li *ngFor="let peliculas of dameTodasPeliculas">
+   <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
+      {{peliculas}}
+    <!-- </span>-->
+  </li>
+</ul>
+<br/>
+
+<ul>
+  <li *ngFor="let peliculas of ordenarPeliculas">
+   <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
+      {{peliculas}}
+    <!-- </span>-->
+  </li>
+</ul>
+
+  <!--<button (click)="cambiarEstadoInformacion()">Mostrar u ocultar informacion</button>
+<ul *ngIf="mostrarInformacion">
+  <li>Numeros primos en <span style="color: red">ROJO</span></li>
+  <li>Numeros divisibles por 3 en <span style="color: orange">NARANJA</span></li>
+  <li>Resto de numeros en <span style="color: blue">AZUL</span></li>
+</ul>-->
+<!-- aqui vendría el formulario
+<form>
+
+  </form>
+-->
+<table> 
+  <thead> </thead>
+  <tbody> <tr *ngFor="let peliculas of ordenarPeliculas"> 
+    <td> {{peliculas.name}} </td>
+    </tr> <tbody>
+  </table>

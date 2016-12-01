@@ -3,20 +3,9 @@ import { PeliculaModelo } from './modelo-peliculas/pelicula-modelo';
 
 @Injectable()
 export class PeliculasServiceService {
-
-  constructor() { }
-
-}
-
-
-
-
-@Injectable()
-export class ServicePeliculasService {
-
-  listaDePeliculas: PeliculaModelo[];
-
+listaDePeliculas: PeliculaModelo[];
   constructor() { 
+ 
     this.listaDePeliculas = [new PeliculaModelo("Peli2",""),new PeliculaModelo("Peli3","")];
 
     //  this.listaDePeliculas = ["Peli2","Peli1","Peli4","Peli7","Peli5","Peli6","Peli7","Peli8"];
@@ -41,7 +30,13 @@ export class ServicePeliculasService {
     return this.listaDePeliculas.sort();
 
   }
+  
+   saluda():string
+  {
+    return "soy el servicio saludando";
 
+  }
+  
 }
 
 

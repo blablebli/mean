@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicePeliculasService } from '../peliculas-service.service';
+import { PeliculasServiceService } from '../peliculas-service.service';
 import { PeliculaModelo } from '../modelo-peliculas/pelicula-modelo';
 
 @Component({
   selector: 'app-componente-peliculas',
   templateUrl: './componente-peliculas.component.html',
   styleUrls: ['./componente-peliculas.component.css'],
-  providers: [ServicePeliculasService]
+  providers: [PeliculasServiceService]
 })
 
 export class ComponentePeliculasComponent implements OnInit {
 
   listaDePeliculas: PeliculaModelo[];
+  saludaServicioString: string;
   //unaPelicula: string;
   mostrarInformacion: boolean = false;
-  constructor(private servicioPeliculasService: ServicePeliculasService ) { 
+  constructor(private servicioPeliculasService: PeliculasServiceService ) { 
       this.listaDePeliculas = this.servicioPeliculasService.listaDePeliculas;  
+      this.saludaServicioString= this.saludaServicioString;
+    
   }
 
   dameUnaPelicula(numero: number):PeliculaModelo{

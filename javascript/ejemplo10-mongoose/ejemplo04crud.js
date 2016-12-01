@@ -1,4 +1,4 @@
-var mongoose= require("monggose");
+var mongoose= require("mongoose");
 //2º Conectar a la base de de datos --> ESTO NO LO HAGO EN EL MODELO ELCONECTAR A LA BBDD
 mongoose.connect("mongodb://localhost/test")
 var Libro = require("./ejemplo04model");// en lugar  de hacer esto estaria  mejor inyectarlo en el constructor 

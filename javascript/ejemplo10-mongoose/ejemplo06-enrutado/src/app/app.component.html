@@ -1,0 +1,15 @@
+<h1>
+  {{title}}
+</h1>
+
+
+<!--Esto bonito estaria bien hacerlo con un menu debootstrap desplegable
+ para q pueda ir a las distintas vistas de rutas-->
+<ul>
+    <li> <a [routerLink] = "['listar']"> Lista de libros</a>    </li>
+    <li> <a [routerLink] = "['consultar']"> Consulta de libro</a>    </li>
+    //a qui pondri en lugar de "1" cliente_id
+    <li> <a [routerLink] = "['consultar','1']"> Consulta de libro</a>    </li>
+    <li> <a [routerLink] = "['formulario']"> Formulario de libro</a>    </li>
+</ul>
+ <router-outlet></router-outlet>

@@ -14,7 +14,7 @@ listaDePeliculas: PeliculaModelo[];
   dameUnaPelicula(id: number):PeliculaModelo
   {
     //return this.listaDePeliculas[id];
-    return this.listaDePeliculas[0];
+    return this.listaDePeliculas[id];
 
   }
  

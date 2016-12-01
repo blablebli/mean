@@ -3,8 +3,8 @@
 </p>
 
 <br/>
-<h1>Mis Peliculas por 6</h1>
-<h2>{{saludaServicioString}} </h2>
+<h1>Mis Peliculas por 7</h1>
+<h2>el string es: {{saludaServicioString}} </h2>
 <ul>
   <li *ngFor="let peliculas of listaDePeliculas">
    <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
@@ -14,23 +14,47 @@
   </li>
 </ul>
 <br/>
+
+
+<!--
 <ul>
-  <li *ngFor="let peliculas of dameTodasPeliculas">
-   <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
-      {{peliculas}}
-    <!-- </span>-->
+  <li *ngFor="let unaPelicula of dameUnaPelicula(0)">
+   
+      {{unaPelicula}}
+    
+  </li>
+</ul>
+<br/>
+-->
+
+
+
+<ul>
+  <li *ngFor="let todasPeliculas of listaDePelicula2">
+   
+      {{todasPeliculas}}
+    
   </li>
 </ul>
 <br/>
 
 <ul>
-  <li *ngFor="let peliculas of ordenarPeliculas">
-   <!-- <span [ngStyle]="{color: colorEnDistintosEstados(numero)}">-->
-      {{peliculas}}
-    <!-- </span>-->
+  <li *ngFor="let todasPeliculas of listaDePelicula2">
+   
+      {{todasPeliculas}}
+    
   </li>
 </ul>
-
+<br/>
+<!--
+<ul>
+  <li *ngFor="let peliculas of ordenarPeliculas">
+   
+      {{peliculas}}
+   
+  </li>
+</ul>
+-->
   <!--<button (click)="cambiarEstadoInformacion()">Mostrar u ocultar informacion</button>
 <ul *ngIf="mostrarInformacion">
   <li>Numeros primos en <span style="color: red">ROJO</span></li>
@@ -42,9 +66,20 @@
 
   </form>
 -->
-<table> 
-  <thead> </thead>
-  <tbody> <tr *ngFor="let peliculas of ordenarPeliculas"> 
-    <td> {{peliculas.name}} </td>
+
+<span (click)="enviarNotificacion()">Numero: {{peliculas[0].id}}</span>
+
+<table border="1"> 
+<thead>
+   <tr (click)="enviarNotificacion3()">
+      <th>titulo</th>
+      <th>autor</th>
+      <th>sinopsis</th>
+      </tr>
+      </thead>
+  <tbody> <tr *ngFor="let peliculas of listaDePelicula2"> 
+    <td> {{peliculas.titulo}} </td>
+    <td> {{peliculas.autor}} </td>
+    <td> {{peliculas.sinopsis}} </td>
     </tr> <tbody>
   </table>

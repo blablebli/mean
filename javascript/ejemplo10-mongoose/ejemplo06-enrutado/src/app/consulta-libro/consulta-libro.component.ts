@@ -4,7 +4,6 @@ import {ActivatedRoute} from '@angular/router';
 
 import {Libro} from '../libro';
 
-
 @Component({
   selector: 'app-consulta-libro',
   templateUrl: './consulta-libro.component.html',
@@ -16,7 +15,6 @@ export class ConsultaLibroComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
 //Creo un nuevo libro vacio para q no me de error y peuda hacer todo
 this.libro = new Libro(0,"");
-
    }
 
   public libro: Libro

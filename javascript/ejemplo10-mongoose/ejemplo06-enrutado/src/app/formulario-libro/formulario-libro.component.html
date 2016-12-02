@@ -1,3 +1,24 @@
 <p>
   formulario-libro works!
 </p>
+<br/>
+<form #form="ngForm" (ngSubmit)="eviarFormulario(form.value)">
+  <label> Titulo del libro </label>
+  <input type="text" #titulo="ngModel" 
+      name="titulo"
+    [(ngModel)]="libro.titulo" required/>     <!--//el two way bindind es--> [(ngModel)]="libro.titulo"-->
+    <!--   #titulo="ngModel" no lo utilizo pq no hago validaciones el titulo q lo utilizo,
+        y sirve como variable de template q sirve- sin ese identificador no lo podria utilizar 
+        dentro del template para las validaciones -->
+
+  <button type="submit"> Enviar</button>
+  </form>
+
+  <!--Tengo un libro que me creo en el constructor con un identificado pero sin rellenar más datos
+     es decir ese libro solo he rellenaod ese campo y luego lo que hago en el formulario es coger 
+     ese libro q me he creado y le añado en el formulario este el titulo.
+     Recuerdo q lo vi en el ejericcio formulario.component.html 
+     para validar que hacia un titulo.valid y titulo.pristine      
+     -->
+
+

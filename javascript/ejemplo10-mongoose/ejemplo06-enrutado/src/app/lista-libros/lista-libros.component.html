@@ -1,11 +1,10 @@
 <p>
   lista-libros works!
 </p>
-<!-- auiqe le paso el libro q consulto
+<!-- auiqe le paso el libro q consulto-->
 <tr *ngFor="let libro of libros">
-  <td> {{libro.titulo}} .
-<a [routerLink] = "['consultar',libro.id]
-
+  <td> {{libro.titulo}} - <a [routerLink] = "['/consultar',libro.id]">
+    Consultar libro
 </a> </td>
--->
-<tr>
+
+</tr>

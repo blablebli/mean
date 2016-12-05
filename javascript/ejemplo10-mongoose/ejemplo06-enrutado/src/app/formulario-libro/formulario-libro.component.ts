@@ -34,7 +34,7 @@ eviarFormulario(formulario:any)
 {
   console.log(this.libro);// para v er q le lleba el servici
   this.service.addLibro(this.libro)
-  .subscribe((
+  .subscribe(
     (datos)=> 
     {
       //tengo los datos lo opngo
@@ -48,8 +48,8 @@ eviarFormulario(formulario:any)
     //3 funcion para decir lo q quieo q haba cuando termine
     ()=>{
       console.log("fin");
-    } 
-  ));
+    })
+   
     //this.router.navigateByUrl("/listar") // le digo q cuando acabo lo redirige
-}
+  }
 }

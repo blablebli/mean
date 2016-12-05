@@ -1,0 +1,11 @@
+
+    {
+        "pelisExternas":[
+            {"id":1, "titulo":"Externas titulo 1", "autor":"adfa", "sinopsis":"Dsada"},
+            {"id":2, "titulo":"Externas titulo 2", "autor":"adfa", "sinopsis":"Dsada"},
+            {"id":3, "titulo":"Externas titulo 3", "autor":"adfa", "sinopsis":"Dsada"},
+            {"id":4, "titulo":"Externas titulo 4", "autor":"adfa", "sinopsis":"Dsada"},
+            {"id":5, "titulo":"Externas titulo 5", "autor":"adfa", "sinopsis":"Dsada"},
+            {"id":6, "titulo":"Externas titulo 6", "autor":"adfa", "sinopsis":"Dsada"}
+        ]
+    }

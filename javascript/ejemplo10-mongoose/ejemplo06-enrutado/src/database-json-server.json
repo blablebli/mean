@@ -1,12 +1,36 @@
-
+{
+  "libros": [
     {
-        "libros":[
-            {"id":1, "titulo":"titulo 1"},
-            {"id":2, "titulo":"titulo 2"},
-            {"id":3, "titulo":"titulo 3"},
-            {"id":4, "titulo":"titulo 4"},
-            {"id":5, "titulo":"titulo 5"},
-            {"id":6, "titulo":"titulo 6"}
-        ]
+      "id": 1,
+      "titulo": "titulo 1"
+    },
+    {
+      "id": 2,
+      "titulo": "titulo 2"
+    },
+    {
+      "id": 3,
+      "titulo": "titulo 3"
+    },
+    {
+      "id": 4,
+      "titulo": "titulo 4"
+    },
+    {
+      "id": 5,
+      "titulo": "titulo 5"
+    },
+    {
+      "id": 6,
+      "titulo": "titulo 6"
+    },
+    {
+      "id": 7,
+      "titulo": "bbb"
+    },
+    {
+      "id": 8,
+      "titulo": 1
     }
-
+  ]
+}

@@ -10,6 +10,9 @@ import { PeliculasFilaComponent } from './peliculas-fila/peliculas-fila.componen
 import { ComponenteHomeComponent } from './componente-home/componente-home.component';
 import { ComponenteExternasPelisComponent } from './componente-externas-pelis/componente-externas-pelis.component';
 import { AppRoutes } from './app.routes';
+import { AppRoutes2EnlacesDentroComponente} from './app.routes';
+import { ComponentePeliculasBbddComponent } from './componente-peliculas-bbdd/componente-peliculas-bbdd.component';
+import { ComponenteExternasBbddComponent } from './componente-externas-bbdd/componente-externas-bbdd.component';
 
 
 @NgModule({
@@ -18,17 +21,20 @@ import { AppRoutes } from './app.routes';
     ComponentePeliculasComponent,
     PeliculasFilaComponent,
     ComponenteHomeComponent,
-    ComponenteExternasPelisComponent
+    ComponenteExternasPelisComponent,
+    ComponentePeliculasBbddComponent,
+    ComponenteExternasBbddComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(AppRoutes)
+   RouterModule.forRoot(AppRoutes)
   ],
   providers: [],
- // bootstrap: [AppComponent]
- bootstrap: [AppComponent, ComponentePeliculasComponent]
+  bootstrap: [AppComponent]
+ //
+// bootstrap: [AppComponent, ComponenteExternasPelisComponent]
     //bootstrap: [AppComponent/*, ComponentePeliculasComponent, PeliculasFilaComponent */]
 })
 export class AppModule { }

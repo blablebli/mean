@@ -1,10 +1,40 @@
-<h1>
-  {{title}}
-  hola mundo
-</h1>
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="wwww.google.es">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a [routerLink]="['home']">Home</a></li>
+        <li><a [routerLink]="['listar']">Lista de mis peliculas</a></li>
+        <li><a [routerLink]="['pelisexternas']">Lista de mis peliculas Externas</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sin BBDD
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                   <li><a [routerLink]="['listar']">Lista de mis peliculas</a></li>
+                   <li><a [routerLink]="['pelisexternas']">Lista de mis peliculas Externas</a></li>
+              </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Con BBDD
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                   <li><a [routerLink]="['listar']">Lista de mis peliculas</a></li>
+                   <li><a [routerLink]="['pelisexternas']">Lista de mis peliculas Externas</a></li>
+              </ul>
+        </li>
+   
+    </ul>
+  </div>
+</nav>
+
+app component
+<br/>
+
 <ul>
   <li><a [routerLink]="['listar']">Lista de mis peliculas</a></li>
-<!--  <li><a [routerLink]="['consultar','1']">Consulta de libros</a></li>
-  <li><a [routerLink]="['formulario']">Formulario de libros</a></li>-->
+
+  
+
 </ul>
 <router-outlet></router-outlet>

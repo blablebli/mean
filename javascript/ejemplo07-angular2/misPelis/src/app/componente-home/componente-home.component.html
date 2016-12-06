@@ -1,8 +1,12 @@
+
 <p>
   componente-home works!
 </p>
 
 <ul>
-<li> <a href="#">Servicio Interno Películas </a></li>
-<li> <a href="#"> Servicio Externo Peliculas </a> </li>
+  <li> <a [routerLink]="['home2EnlacesDentroComponente']">pagina inicio </a></li>
+<li> <a [routerLink]="['listar2EnlacesDentroComponente']">Servicio Interno Películas </a></li>
+<li> <a [routerLink]="['pelisexternas2EnlacesDentroComponente']"> Servicio Externo Peliculas </a> </li>
   </ul>
+
+ <router-outlet></router-outlet>

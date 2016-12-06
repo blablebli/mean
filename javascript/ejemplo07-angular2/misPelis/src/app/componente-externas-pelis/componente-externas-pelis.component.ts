@@ -10,8 +10,8 @@ import { PelisExternasServiceService } from '../pelis-externas-service.service';
   providers:[PelisExternasServiceService]
 })
 export class ComponenteExternasPelisComponent implements OnInit {
-  
-   private ExternasPelis: ExternasPeliculasModelo[];
+  constructor(){};
+ /*private ExternasPelis: ExternasPeliculasModelo[];
   constructor(private service: PelisExternasServiceService) {
       this.service.getPelisExternas().subscribe((datos)=>{
           this.ExternasPelis = datos;
@@ -21,7 +21,7 @@ export class ComponenteExternasPelisComponent implements OnInit {
       ()=>{
         console.log("Completada");
       }
-   }
+   }*/
 
   ngOnInit() {
   }

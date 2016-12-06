@@ -5,8 +5,8 @@
     </div>
     <ul class="nav navbar-nav">
         <li><a [routerLink]="['home']">Home</a></li>
-        <li><a [routerLink]="['listar']">Lista de mis peliculas</a></li>
-        <li><a [routerLink]="['pelisexternas']">Lista de mis peliculas Externas</a></li>
+       <!-- <li><a [routerLink]="['listar']">Lista de mis peliculas</a></li>
+        <li><a [routerLink]="['pelisexternas']">Lista de mis peliculas Externas</a></li>-->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sin BBDD
               <span class="caret"></span></a>
@@ -19,8 +19,8 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Con BBDD
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                   <li><a [routerLink]="['listar']">Lista de mis peliculas</a></li>
-                   <li><a [routerLink]="['pelisexternas']">Lista de mis peliculas Externas</a></li>
+                   <li><a [routerLink]="['listarConBBDD']">Lista de mis peliculas con BBDD</a></li>
+                   <li><a [routerLink]="['pelisexternasConBBDD']">Lista de mis peliculas Externas con BBDD</a></li>
               </ul>
         </li>
    

@@ -40,7 +40,9 @@ app.get("/",
        // console.log("Acceso a la ruta" + JSON.stringify(request.params)); 
 
         //Ahroa cojo el response y se lo mando algo al cliente para q le llegue la peticion hecho sino no hace nada
-        response.send("Respuesta recibida del root!");  
+       // response.send("Respuesta recibida del root!");  
+         response.send(JSON.stringify({ titulo: 'PeliBBdd1', autor:'Desde Express', sinopsis:'Sin bbdd todavia'}));
+
      }
     );
 
@@ -53,8 +55,21 @@ app.get("/listar",
 
         //Ahroa cojo el response y se lo mando algo al cliente para q le llegue la peticion hecho sino no hace nada
         //response.send("Respuesta recibida del root!");  
+         response.send(JSON.stringify({ titulo: 'PeliBBdd1', autor:'Desde Express', sinopsis:'Sin bbdd todavia'}));
+         
      }
     );
+
+
+   /* router.get("/mydata", restrict, (req: Request, res: Response) => {
+    res.send({ title: 'hello', myVar:'world'});
+    // or
+    res.send(JSON.stringify({ title: 'hello', myVar:'world'}));
+});router.get("/mydata", restrict, (req: Request, res: Response) => {
+    res.send({ title: 'hello', myVar:'world'});
+    // or
+    res.send(JSON.stringify({ title: 'hello', myVar:'world'}));
+});*/
 
 app.get("/mispelis",
     (request,response)=>{

@@ -1,3 +1,110 @@
 <p>
   componente-peliculas-bbdd works!
 </p>
+
+Mis peliculas internas con BBDD
+<br/>
+<ul>
+  <li> <a [routerLink]="['home2EnlacesDentroComponente']">pagina inicio </a></li>
+<li> <a [routerLink]="['listar2EnlacesDentroComponente']">Servicio Interno Películas </a></li>
+<li> <a [routerLink]="['pelisexternas2EnlacesDentroComponente']"> Servicio Externo Peliculas </a> </li>
+  </ul>
+
+ <router-outlet></router-outlet>
+
+
+ <!--4º paso creo el formulario-->
+
+ <form #form="ngForm" (ngSubmit)="enviarFormulario(form.value)">
+
+   <div class="form-group">
+        <!-- con form.value q le paso en la funcion coge todos lo valores del formulario)-->
+        <div class="row">
+            <div class="col-xs-1">
+              </div>
+       <div class="col-xs-3">
+          <label for="titulo">Titulo </label>
+          <input type="text" class="form-control" #titulo="ngModel" id="titulo" name="titulo" [(ngModel)]="peliNueva.titulo" required/>
+      </div>
+
+               </div>
+
+            
+            <div class="row">
+               <div class="col-xs-1">
+              </div>
+            <div class="col-xs-3">
+      <label>Autor </label>
+      <input type="text"  class="form-control" #autor="ngModel" name="autor" [(ngModel)]="peliNueva.autor" required/>
+     </div>
+      </div>
+      
+      <div class="row">
+         <div class="col-xs-1">
+              </div>
+      <div class="col-xs-9">
+      <label>Sinopsis </label>
+      <input type="text"  class="form-control" #sipnosis="ngModel" name="sinopsis" [(ngModel)]="peliNueva.sinopsis" />
+    </div>
+     </div>
+        <!-- si el formulario tiene un campo no valido como el unico campo q he puesto obligatorio
+        es el titulo en cuanto lo ponga funcionara--> 
+
+  <div class="row">   
+    <div class="col-xs-1">
+              </div>
+              <div class="col-xs-3">
+      <button type="submit" class="btn-btn-default" [disabled]="form.invalid">Enviar</button>
+      </div>
+      </div>    
+   </div>
+</form>
+
+
+
+<!--
+<h2>el string es: {{saludaServicioString}} </h2>
+<ul>
+  <li *ngFor="let peliculas of listaDePeliculas">
+ 
+   {{peliculas.titulo}}
+   
+  
+  </li>
+</ul>
+<br/>
+
+<ul>
+  <li *ngFor="let todasPeliculas of listaDePelicula2">
+   
+      {{todasPeliculas}}
+    
+  </li>
+</ul>
+<br/>
+-->
+<!-- aqui vendría el formulario
+<form>
+
+  </form>
+
+
+<span (click)="enviarNotificacion()">Numero: {{peliculas[0].id}}</span>
+-->
+<table class="table table-bordered table-striped"> 
+<thead>
+   <tr >
+      <th (click)="enviarNotificacion(1)">titulo</th>
+      <th (click)="enviarNotificacion(2)">autor</th>
+      <th (click)="enviarNotificacion(3)">sinopsis</th>
+      </tr>
+      </thead>
+  <tbody> <tr *ngFor="let peliculas of listaDePelicula2"  > 
+    <td> {{peliculas.titulo}} </td>
+    <td> {{peliculas.autor}} </td>
+    <td> {{peliculas.sinopsis}} </td>
+    <td> <input type="button" value="Modificar" /> </td>
+    <td> <input type="button" value="Borrar" /> </td>
+   <td> <input type="button" value="Detalle" /> </td>
+    </tr>
+  </table>

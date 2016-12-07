@@ -37,24 +37,45 @@ export class ComponentePeliculasBbddComponent implements OnInit {
        return "Entra3";
      };
 
-  constructor(private servicioPeliculasServiceExpresMongoose: Peliculas2ServiceExpressMongooseService ) 
-    {// Comentario de  Pedro tengo q copiar el otro y simplimente por cambiar deberia funcionar 
+  //constructor(private servicioPeliculasServiceExpresMongoose: Peliculas2ServiceExpressMongooseService ) 
+   // {// Comentario de  Pedro tengo q copiar el otro y simplimente por cambiar deberia funcionar 
      //error mio pq esto es si fuera sincron o ahora no es sincrono luego tengo que quitar
      //lo de abajo y poner el subscribe servicio
-      this.listaDePeliculas = this.servicioPeliculasServiceExpresMongoose.listaDePeliculas;  
+      /*this.listaDePeliculas = this.servicioPeliculasServiceExpresMongoose.listaDePeliculas;  
       //this.saludaServicioString = this.servicioPeliculasService.saluda;
       console.log("El resultado:" + this.servicioPeliculasServiceExpresMongoose.saluda);
       this.saludaServicioString = this.servicioPeliculasServiceExpresMongoose.saluda();
       console.log("Una peli:" +  this.servicioPeliculasServiceExpresMongoose.dameUnaPelicula(0).titulo);
       this.listaDePelicula2 = this.servicioPeliculasServiceExpresMongoose.dameTodasPeliculas();
 
-      this.peliNueva = new PeliculaModelo ("","");
-    }
+      this.peliNueva = new PeliculaModelo ("","");*/
+      private ExternasPelis: PeliculaModelo[];
+  constructor(private servicioPeliculasServiceExpresMongoose: Peliculas2ServiceExpressMongooseService)
+   {
+      this.servicioPeliculasServiceExpresMongoose.getPelisExternas().subscribe((datos)=>
+      {
+         console.log("entra al subscribe");
+        //  this.ExternasPelis = datos;
+           this.ExternasPelis = datos;
+          console.log("Sale y el titulo es:" + JSON.stringify(datos) );
+           console.log("sale del subscribe" +  JSON.stringify(this.ExternasPelis) );
+           console.log("sale del subscribe"  );
+      },(error)=>
+      {
+          console.log("Error " + error);
+      }),
+      ()=>{
+        console.log("Completada");
+      }
+   }
+
+   // }
 
 
 
 
-enviarFormulario(formulario: any){
+
+/*enviarFormulario(formulario: any){
   console.log("Datos del formulario enviardo" + formulario);//le pongo la variable q le paso en la funcion
   // q es formulario
   //Pongo para q me devuelva el valor del libro q le estoy devolviendo 
@@ -73,7 +94,7 @@ enviarFormulario(formulario: any){
      this.peliNueva.sinopsis=formulario.sinopsis;
      this.listaDePelicula2.push(this.peliNueva);
   }
-
+*/
 
  enviarNotificacion(campoOrdenar:number):void{
 

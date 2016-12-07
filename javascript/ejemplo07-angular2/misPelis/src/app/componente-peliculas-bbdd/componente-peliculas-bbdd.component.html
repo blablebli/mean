@@ -14,11 +14,11 @@ Mis peliculas internas con BBDD
 
 
  <!--4º paso creo el formulario-->
-
+<!--
  <form #form="ngForm" (ngSubmit)="enviarFormulario(form.value)">
 
    <div class="form-group">
-        <!-- con form.value q le paso en la funcion coge todos lo valores del formulario)-->
+      
         <div class="row">
             <div class="col-xs-1">
               </div>
@@ -47,8 +47,7 @@ Mis peliculas internas con BBDD
       <input type="text"  class="form-control" #sipnosis="ngModel" name="sinopsis" [(ngModel)]="peliNueva.sinopsis" />
     </div>
      </div>
-        <!-- si el formulario tiene un campo no valido como el unico campo q he puesto obligatorio
-        es el titulo en cuanto lo ponga funcionara--> 
+       
 
   <div class="row">   
     <div class="col-xs-1">
@@ -60,7 +59,7 @@ Mis peliculas internas con BBDD
    </div>
 </form>
 
-
+-->
 
 <!--
 <h2>el string es: {{saludaServicioString}} </h2>
@@ -99,12 +98,13 @@ Mis peliculas internas con BBDD
       <th (click)="enviarNotificacion(3)">sinopsis</th>
       </tr>
       </thead>
-  <tbody> <tr *ngFor="let peliculas of listaDePelicula2"  > 
-    <td> {{peliculas.titulo}} </td>
-    <td> {{peliculas.autor}} </td>
-    <td> {{peliculas.sinopsis}} </td>
-    <td> <input type="button" value="Modificar" /> </td>
-    <td> <input type="button" value="Borrar" /> </td>
-   <td> <input type="button" value="Detalle" /> </td>
-    </tr>
+  <tbody> <tr *ngFor="let peli of ExternasPelis" >
+    <td>>
+
+      {{peli?.titulo}} 
+     
+     </td>
+    <td>{{peli?.autor}}</td>
+    <td>{{peli?.sinopsis}}</td>
+  </tr>
   </table>

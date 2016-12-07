@@ -32,6 +32,7 @@ listaDePeliculas: PeliculaModelo[];
         .map((response: Response)=>{
           console.log("r",response.json());
             return response.json()
+            //return response.json().pelisExternas //  si devuelvo documento anidado para acceder a el lo hago asi
         })
         .catch((error:any)=>{
           console.log("Error al procesar la peticion");

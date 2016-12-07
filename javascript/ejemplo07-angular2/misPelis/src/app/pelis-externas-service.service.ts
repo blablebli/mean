@@ -9,7 +9,7 @@ import { ExternasPeliculasModelo  } from './modelo-peliculas/externas-peliculas-
 @Injectable()
 export class PelisExternasServiceService {
 
-  private url = "http://localhost:3000/pelisExternas"
+  private url = "http://localhost:3000/pelisexternas"
   constructor(private http: Http) { }
 
   getPelisExternas(): Observable<ExternasPeliculasModelo []>{

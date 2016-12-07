@@ -7,28 +7,30 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 
-@Injectable()
+@Injectable()//Peliculas2ServiceExpressMongooseService
 export class Peliculas2ServiceExpressMongooseService {
 
 listaDePeliculas: PeliculaModelo[];
  
 
-  private url = "http://localhost:3000/pelisExternas"
+ // private url = "http://localhost:3000/pelisExternas"
+    private url = "http://localhost:3300/listar"
   //constructor(private http: Http) { }
 
  constructor(private http: Http) { 
      console.log("Entra constructor servicio cliente");
-    this.listaDePeliculas = [new PeliculaModelo("Peli4","O El regreso de ", "resumen3 de la peli"),
+   /* this.listaDePeliculas = [new PeliculaModelo("Peli4","O El regreso de ", "resumen3 de la peli"),
                               new PeliculaModelo("Peli3","LA VUELTA DE","resumen2 de la pelia"),
                               new PeliculaModelo("Peli1","Sl regreso de ", "resumen4de la peli"),
                               new PeliculaModelo("Peli2","NA VUELTA DE","resumen1 de la pelia")                              
-                              ];
+                              ];*/
   }
 
-  getPelisExternas(): Observable<PeliculasModelo []>{
+  getPelisExternas(): Observable<PeliculaModelo []>{
     console.log("Es capaz de entrar en el servivio devolver peliculas");
     return this.http.get(this.url)
         .map((response: Response)=>{
+          console.log("r",response.json());
             return response.json()
         })
         .catch((error:any)=>{
@@ -36,7 +38,7 @@ listaDePeliculas: PeliculaModelo[];
           return Observable
           .throw(error.json().error || "Error de servidor");
         })
-
+  }
 /* getPelisExternas(): Observable<ExternasPeliculasModelo []>{
     return this.http.get(this.url)
         .map((response: Response)=>{

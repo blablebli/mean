@@ -10,21 +10,22 @@ import { ExternasPeliculasModelo  } from './modelo-peliculas/externas-peliculas-
 @Injectable()
 export class Pelis2ExternasServiceExpressMongooseService {
 
- private url = "http://localhost:3000/pelisExternas"
-  constructor(private http: Http) { }
+ private url = "http://localhost:3000/pelisexternas";
+  constructor(private http: Http) {   }
 
-  getPelisExternas(): Observable<ExternasPeliculasModelo []>{
+   getPelisExternas(): Observable<ExternasPeliculasModelo []>{
     return this.http.get(this.url)
         .map((response: Response)=>{
             return response.json()
         })
         .catch((error:any)=>{
-          console.log("Error al procesar la peticion");
-          return Observable
+          console.log("Error al procesar la peticion me");
+                return Observable
           .throw(error.json().error || "Error de servidor");
         })
-}
-  	addPeliExterna(body: Object): Observable<ExternasPeliculasModelo >{
+    }
+     
+ /* 	addPeliExterna(body: Object): Observable<ExternasPeliculasModelo >{
       let miPeliculaEnString = JSON.stringify(body);
       //"{id:null,titulo:'Lo que sea'}"
       let miCabecera = new Headers(
@@ -41,5 +42,5 @@ export class Pelis2ExternasServiceExpressMongooseService {
                 return Observable
                 .throw(error.json().error || "Error de servidor");
           })
-    }
+    }*/
 }

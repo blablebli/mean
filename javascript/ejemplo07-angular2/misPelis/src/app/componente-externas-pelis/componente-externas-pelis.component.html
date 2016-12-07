@@ -12,6 +12,7 @@ Mis peliculas externas
 <p>
   componente-externas-pelis works!
   </p>
+  
 <table class="table table-bordered table-striped"> 
 <thead>
    <tr >
@@ -21,11 +22,7 @@ Mis peliculas externas
       </tr>
       </thead>
   <tbody> <tr *ngFor="let peli of ExternasPelis" >
-    <td><!--{{peli.titulo}} -
-      /consultar/{{peli.id}} 
-      /consultar/:variable
-      <a [routerLink]="['/consultar',peli.id]">
-      Consultar peli   </a>-->
+    <td>>
 
       {{peli.autor}} 
      
@@ -36,4 +33,3 @@ Mis peliculas externas
 </tbody>
 </table>
   
-

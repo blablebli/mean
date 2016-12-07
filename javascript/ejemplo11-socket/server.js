@@ -23,3 +23,9 @@ io.on('connection', (socket)=>{
 io.on('disconnect', (socket)=>{
     console.log("Cliente desconectado");
 });
+
+//levanto en el puerto 3000 y le mando una funcion q ponga iniciado en el puerto 3000
+
+http.listen(3000,()=>{
+    console.log("Iniciado en el puerto 3000");
+});

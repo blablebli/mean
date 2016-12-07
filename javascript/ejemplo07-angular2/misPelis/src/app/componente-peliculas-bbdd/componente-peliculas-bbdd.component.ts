@@ -38,7 +38,9 @@ export class ComponentePeliculasBbddComponent implements OnInit {
      };
 
   constructor(private servicioPeliculasServiceExpresMongoose: Peliculas2ServiceExpressMongooseService ) 
-    { 
+    {// Comentario de  Pedro tengo q copiar el otro y simplimente por cambiar deberia funcionar 
+     //error mio pq esto es si fuera sincron o ahora no es sincrono luego tengo que quitar
+     //lo de abajo y poner el subscribe servicio
       this.listaDePeliculas = this.servicioPeliculasServiceExpresMongoose.listaDePeliculas;  
       //this.saludaServicioString = this.servicioPeliculasService.saluda;
       console.log("El resultado:" + this.servicioPeliculasServiceExpresMongoose.saluda);
@@ -48,6 +50,8 @@ export class ComponentePeliculasBbddComponent implements OnInit {
 
       this.peliNueva = new PeliculaModelo ("","");
     }
+
+
 
 
 enviarFormulario(formulario: any){

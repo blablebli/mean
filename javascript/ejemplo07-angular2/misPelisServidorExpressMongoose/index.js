@@ -79,7 +79,7 @@ app.get("/mispelis",
        // console.log("Acceso a la ruta" + JSON.stringify(request.params)); 
 
         //Ahroa cojo el response y se lo mando algo al cliente para q le llegue la peticion hecho sino no hace nada
-       // response.send("Respuesta recibida de mis pelis!");  
+        response.send("Respuesta recibida de mis pelis!");  
      }
     );
 /*
@@ -181,7 +181,7 @@ app.route("/rutaconjunta")
   // y luego abajo le digo donde usarlo con el app.use("/cosacuca",router); 
   //y esta separado por ficheros los distintos negocios.
 */
- //   app.listen(3000);
-        app.listen(4200);
+    app.listen(3300);
+  //      app.listen(4200);
 //para q me diga q ha cargado el modulo
     console.log("Servidor iniciado");

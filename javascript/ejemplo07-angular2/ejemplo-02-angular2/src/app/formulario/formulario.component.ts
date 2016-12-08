@@ -4,7 +4,6 @@ import {Libro} from '../modelo/libro'; //paso1 importo el modelo q
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
 

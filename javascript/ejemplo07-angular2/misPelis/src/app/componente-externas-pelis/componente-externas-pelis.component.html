@@ -1,9 +1,11 @@
 Mis peliculas externas
 <br/>
+<!--Para que funncione la ruta le tengo que poner la "/" sino lo coge como 
+  ruta absoluta en lugar de ruta relativa-->
 <ul>
-  <li> <a [routerLink]="['home2EnlacesDentroComponente']">pagina inicio </a></li>
-<li> <a [routerLink]="['listar2EnlacesDentroComponente']">Servicio Interno Películas </a></li>
-<li> <a [routerLink]="['pelisexternas2EnlacesDentroComponente']"> Servicio Externo Peliculas </a> </li>
+ <li> <a [routerLink]="['/home']">pagina inicio </a></li>
+<li> <a [routerLink]="['/listar']">Servicio Interno Películas </a></li>
+<li> <a [routerLink]="['/pelisexternas']"> Servicio Externo Peliculas </a> </li>
   </ul>
 
  <router-outlet></router-outlet>

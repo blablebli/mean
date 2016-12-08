@@ -1,3 +1,10 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="#">Menu 1</a></li>
+  <li><a href="#">Menu 2</a></li>
+  <li><a href="#">Menu 3</a></li>
+</ul>
+
 <p>
   componente-peliculas-bbdd works!
 </p>
@@ -5,9 +12,11 @@
 Mis peliculas internas con BBDD
 <br/>
 <ul>
-  <li> <a [routerLink]="['home2EnlacesDentroComponente']">pagina inicio </a></li>
-<li> <a [routerLink]="['listar2EnlacesDentroComponente']">Servicio Interno Películas </a></li>
-<li> <a [routerLink]="['pelisexternas2EnlacesDentroComponente']"> Servicio Externo Peliculas </a> </li>
+  <!--Para que funncione la ruta le tengo que poner la "/" sino lo coge como 
+  ruta absoluta en lugar de ruta relativa-->
+  <li> <a [routerLink]="['/home']">pagina inicio </a></li>
+<li> <a [routerLink]="['/listar']">Servicio Interno Películas </a></li>
+<li> <a [routerLink]="['/pelisexternas']"> Servicio Externo Peliculas </a> </li>
   </ul>
 
  <router-outlet></router-outlet>

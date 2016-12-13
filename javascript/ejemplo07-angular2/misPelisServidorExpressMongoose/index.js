@@ -111,19 +111,30 @@ res.json({});
 
 app.put("/listar", function(req, res) {
 // PeliculaMongooseModel.find({titulo:req.params.titulo}, function(err, peli) {
-     Pelicula.find({titulo: +"'"+req.params.titulo+"'"}, function(err, peli) {
+/*Pelicula.findOneAndUpdate({titulo:req.params.titulo }, { titulo:req.params.titulo, autor:req.params.autor,sinopsis:req.params.sinopsis }, function(err, peli) {
+ if (err) throw err;
+
+  // we have the updated user returned to us
+  console.log(peli);
+});*/
+     Pelicula.find({titulo:req.params.titulo}, function(err, peli) {
   if (peli){
     console.log(req.body);
      /* peli.titulo = req.body.titulo;
       peli.autor = req.body.autor;
       peli.sinopsis = req.body.sinopsis;
-      /*Pelicula.save();
-      res.send('Pelicula edited');*/
+      
+      peli.save(function(err) {
+            if(err) return res.send(500, err.message);
+// res.status(200).jsonp(peli);
+        res.json({});
+
+         });*/
 
       console.log(peli.titulo + "--" + peli.autor + "--" + peli.sinopsis);
  var update = { titulo : req.body.titulo, autor : req.body.autor, sinopsis : req.body.sinopsis }; // 4
 
-        PeliculaMongooseModel.update({titulo:+"'"+req.params.titulo+"'"}, update, function(err) { // 5
+        PeliculaMongooseModel.update({titulo:req.params.titulo}, update, function(err) { // 5
             if(err) {
                 return res.send(500, err);
             }
@@ -131,12 +142,7 @@ app.put("/listar", function(req, res) {
             res.json(peli);
         });
 
-/*      peli.save(function(err) {
-            if(err) return res.send(500, err.message);
-// res.status(200).jsonp(peli);
-        res.json({});
 
-         });*/
     }else{
       res.send('Pelicula doesnt exist');
     }
@@ -146,67 +152,61 @@ app.put("/listar", function(req, res) {
  });
 });
 
+
+app.put("/listar", function(req, res) {
+// PeliculaMongooseModel.find({titulo:req.params.titulo}, function(err, peli) {
+     Pelicula.findById({titulo:req.params.titulo}, function(err, peli) {
+  if (peli){
+    console.log(req.body);
+      peli.titulo = req.body.titulo;
+      peli.autor = req.body.autor;
+      peli.sinopsis = req.body.sinopsis;
+ 
+        peli.save(function(err) {
+                if(err) return res.send(500, err.message);
+        /* res.status(200).jsonp(peli);
+                res.json({});*/
+        console.log('User successfully updated!');
+
+                });
+            }else{
+            res.send('Pelicula doesnt exist');
+            }
+        //res.json({});*/
+
+        // });
+        });
+        });
+
+
+     /* console.log(peli.titulo + "--" + peli.autor + "--" + peli.sinopsis);
+ var update = { titulo : req.body.titulo, autor : req.body.autor, sinopsis : req.body.sinopsis }; // 4
+
+        PeliculaMongooseModel.updateById({titulo:req.params.titulo}, update, function(err) { // 5
+            if(err) {
+                return res.send(500, err);
+            }
+
+            res.json(peli);
+        });*/
+
+    
 //DELETE - Delete a register with specified ID
-app.delete = function(req, res) {
+app.delete("/listar", function(req, res) {
  Pelicula.findById(req.params.id, function(err, peli) {
  peli.remove(function(err) {
  if(err) return res.send(500, err.message);
  res.json({ message: 'Successfully deleted' });
  });
  });
-};
+});
 
-   /* var esdla = new Pelicula(
-    {titulo:"Peli2",
-    autor:"blable",
-    sinopsis:"hoy es 7 de diciembre"});
-esdla.save((error)=>{
-    if(error){
-        console.error("Error al guardar: ",error)
-    }else{
-        console.log("Pelicula guardada " + esdla._id)
-    }
-});*/
+  
     
     
     
     
-        //otra forma mapea el objeto a texto plano
-       // console.log("Acceso a la ruta" + JSON.stringify(request.params)); 
-
-        //Ahroa cojo el response y se lo mando algo al cliente para q le llegue la peticion hecho sino no hace nada
-        //response.send("Respuesta recibida del root!");  
-       // response.send(JSON.stringify({ 'titulo': 'PeliBBdd1', 'autor':'Desde Express', 'sinopsis':'Sin bbdd todavia'}));
- 
-// response.send(JSON.stringify(getPeliculas(20,0));
-
- /*response.send(JSON.stringify(
-          {
-        'pelisExternas':[
-            { 'titulo':'Externas titulo 1', 'autor':'adfa', 'sinopsis':'Dsada'},
-            { 'titulo':'Externas titulo 2', 'autor':'adfa', 'sinopsis':'Dsada'},
-            { 'titulo':'Externas titulo 3', 'autor':'adfa', 'sinopsis':'Dsada'},
-            { 'titulo':'Externas titulo 4', 'autor':'adfa', 'sinopsis':'Dsada'},
-            { 'titulo':'Externas titulo 5', 'autor':'adfa', 'sinopsis':'Dsada'},
-            { 'titulo':'Externas titulo 6', 'autor':'adfa', 'sinopsis':'Dsada'}
-        ]
-    }
- ));*/
-        // response.send(JSON.stringify({ titulo: 'PeliBBdd1', autor:'Desde Express', sinopsis:'Sin bbdd todavia'}));
-         
-     }
-    );// CIERRO EL GET
-
-
-   /* router.get("/mydata", restrict, (req: Request, res: Response) => {
-    res.send({ title: 'hello', myVar:'world'});
-    // or
-    res.send(JSON.stringify({ title: 'hello', myVar:'world'}));
-});router.get("/mydata", restrict, (req: Request, res: Response) => {
-    res.send({ title: 'hello', myVar:'world'});
-    // or
-    res.send(JSON.stringify({ title: 'hello', myVar:'world'}));
-});*/
+ /* 
 
 app.get("/mispelis",
     (request,response)=>{
@@ -219,18 +219,8 @@ app.get("/mispelis",
         response.send("Respuesta recibida de mis pelis!");  
      }
     );
-/*
-
-
-
-app.get("/save/:fichero.:extension", (request,response)=>{
-    //cons esto si yo pongo clientes.pdf crea un fichero bajandome una libreria q cree pdf y me lo haría
-    response.send("Ahora genero un fichero de tipo:  " + request.params.extension);
-    }
-)
-    
-
 */
+
     app.listen(3300);
   //      app.listen(4200);
 //para q me diga q ha cargado el modulo

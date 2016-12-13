@@ -40,6 +40,50 @@ listaDePeliculas: PeliculaModelo[];
           .throw(error.json().error || "Error de servidor");
         })
   }
+
+//post
+addPelisExternas( body: any): Observable<PeliculaModelo[]>{
+  console.log("Es capaz de entrar en el servivio addPelisExternas");
+          let options = new RequestOptions({
+        	headers: new Headers({ 'Content-Type': 'application/json;charset=UTF-8' }) 
+        });
+      return this.http.post(this.url,JSON.stringify(body), options)
+        .map((res:Response) => {
+             console.log("r",res.json());
+             //Duda aqui no estoy devolviendo ningun observable es posible error
+              res.json()}
+          )
+          
+        .catch((error:any) => {
+            return Observable.throw(error.json().error || 'Server error')
+          });
+	}
+
+//
+
+//put
+updatePelisExternas( body: any): Observable<PeliculaModelo []>{
+  let options = new RequestOptions({
+        	headers: new Headers({ 'Content-Type': 'application/json;charset=UTF-8' }) 
+        });
+        // le tengo que decir cual borrar lo tengo q coger de los datos
+    
+		return this.http.put(this.url,JSON.stringify(body), options)
+			.map((res:Response) => res.json())
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
+  
+
+delete(peliId:string ): Observable<PeliculaModelo []>{
+   let options = new RequestOptions({
+        	headers: new Headers({ 'Content-Type': 'application/json;charset=UTF-8' }) 
+        });
+//atento a las comillas q lo coga bien
+		return this.http.delete(`${this.url}/${peliId}`,options)
+			.map((res:Response) => res.json())
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
+
 /* getPelisExternas(): Observable<ExternasPeliculasModelo []>{
     return this.http.get(this.url)
         .map((response: Response)=>{

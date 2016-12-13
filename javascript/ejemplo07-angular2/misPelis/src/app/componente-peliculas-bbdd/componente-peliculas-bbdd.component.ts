@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 //import { PeliculasServiceService } from '../peliculas-service.service';
 import {Peliculas2ServiceExpressMongooseService} from '../peliculas2-service-express-mongoose.service';
 import { PeliculaModelo } from '../modelo-peliculas/pelicula-modelo';
@@ -21,7 +22,7 @@ export class ComponentePeliculasBbddComponent implements OnInit {
   //unaPelicula: string;
   mostrarInformacion: boolean = false;
 
-  private peliNueva: PeliculaModelo;
+  private peliNueva: PeliculaModelo = new PeliculaModelo ("","","");
 
   private eventoMostrar: EventEmitter<boolean> = new EventEmitter<boolean>();
   private eventoMostrar2: EventEmitter<PeliculaModelo[]> = new EventEmitter<PeliculaModelo[]>();
@@ -50,23 +51,29 @@ export class ComponentePeliculasBbddComponent implements OnInit {
 
       this.peliNueva = new PeliculaModelo ("","");*/
       private ExternasPelis: PeliculaModelo[];
+      
   constructor(private servicioPeliculasServiceExpresMongoose: Peliculas2ServiceExpressMongooseService)
    {
-      this.servicioPeliculasServiceExpresMongoose.getPelisExternas().subscribe((datos)=>
-      {
-         console.log("entra al subscribe");
-        //  this.ExternasPelis = datos;
-           this.ExternasPelis = datos;
-          console.log("Sale y el titulo es:" + JSON.stringify(datos) );
-           console.log("sale del subscribe" +  JSON.stringify(this.ExternasPelis) );
-           console.log("sale del subscribe"  );
-      },(error)=>
-      {
-          console.log("Error " + error);
-      }),
-      ()=>{
-        console.log("Completada");
-      }
+      
+
+      this.servicioPeliculasServiceExpresMongoose.getPelisExternas()
+      .subscribe(
+        (datos)=>
+          {
+            console.log("en1tra al subscribe");
+            //  this.ExternasPelis = datos;
+              this.ExternasPelis = datos;
+              console.log("Sale y el titulo es:" + JSON.stringify(datos) );
+              console.log("sale del subscribe" +  JSON.stringify(this.ExternasPelis) );
+              console.log("sale del subscribe"  );
+          },
+            (error)=>
+          {
+              console.log("Error " + error);
+          }),
+          ()=>{
+            console.log("Completada");
+          }
    }
 
    // }
@@ -95,6 +102,52 @@ export class ComponentePeliculasBbddComponent implements OnInit {
      this.listaDePelicula2.push(this.peliNueva);
   }
 */
+
+
+public enviarFormulario(formulario: any){
+//  public enviarFormulario(){
+
+    
+		//this.servicioPeliculasServiceExpresMongoose.addPelisExternas(this.peliNueva)
+  this.peliNueva.titulo =formulario.titulo; // podia pasarle del formulario el campo del titulo pero en realidad no hace falta
+     this.peliNueva.autor=formulario.autor;
+     this.peliNueva.sinopsis=formulario.sinopsis;
+    this.servicioPeliculasServiceExpresMongoose.updatePelisExternas(this.peliNueva)
+    
+            .subscribe(
+                  data => {
+                        // refresh the list
+                        this.servicioPeliculasServiceExpresMongoose.getPelisExternas()
+                              .subscribe(
+                                (datos)=>
+                                  {
+                                    console.log("en1tra al subscribe");
+                                    //  this.ExternasPelis = datos;
+                                      this.ExternasPelis = datos;
+                                      console.log("Sale y el titulo es:" + JSON.stringify(datos) );
+                                      console.log("sale del subscribe" +  JSON.stringify(this.ExternasPelis) );
+                                      console.log("sale del subscribe"  );
+
+                                       this.peliNueva.titulo =""; // podia pasarle del formulario el campo del titulo pero en realidad no hace falta
+     this.peliNueva.autor="";
+     this.peliNueva.sinopsis="";
+                                  },
+                                    (error)=>
+                                  {
+                                      console.log("Error " + error);
+                                  }),
+                                  ()=>{
+                                    console.log("Completada");
+                                  }
+                                                return true;
+                                              },
+                            error => {
+                                  console.error("Error saving food!");
+                                  //return Observable.throw(error);
+                                }
+                    );
+      }
+
 
  enviarNotificacion(campoOrdenar:number):void{
 

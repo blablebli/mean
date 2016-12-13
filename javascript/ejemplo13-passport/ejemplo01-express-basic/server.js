@@ -1,10 +1,22 @@
 var express = require('express');
 //1º añado ahora la seguridad
-var passport = require('passport');
+var passport    = require('passport');
+
 var app= express();
 
+//para evitar el problema de acceso Access-Control-Allos-Origin
+//Otra opcion es con app.user(cors);
+//en lugar del cors q con eso ya estaria lo hago a mano con el next
+// esta escuchando y enviandocualquier peticion
+//Filosofia del middelware  es cualquier cosa q hace reques response y next y algo dentro
+app.use((request, response,next)=>{
+    //con esto se evita cualquier peticion hara esto lo primero de hacerla y es q este autentificado
+    response.header('Access-Control-Allow-Origin', request.headers.origin);
+  response.header('Access-Control-Allow-Headers', 'Authorization')
+    next();
+})
 //2º) le digo la extrategia q voy a usar BasicStrategy
-var Strategy = require('passport-http').BasicStrategy;
+var Strategy    = require('passport-http').BasicStrategy;
 
 //3º) Ahora le digo q voy a usar de la estrategia.
 passport.use(new Strategy((username,password,done)=>{

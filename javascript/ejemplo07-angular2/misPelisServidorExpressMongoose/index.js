@@ -10,6 +10,40 @@ app.use(bodyParser.json());
 var Pelicula = require("./modeloSchemaPeli.js");
 var PeliculaMongooseModel = mongoose.model('Pelicula');
 
+
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var sockets = [];
+io.origins('http://localhost:4200');
+// Por defecto tenemos ya namespace
+// http://localhost:3000/chat/socket.io
+var chat = io.of("/chat");
+chat.on('connection',(socket)=>{
+    console.log("Cliente conectado!!");
+    sockets.push(socket);
+    socket.on('mando-un-mensaje',(mensaje)=>{
+        console.log("Mensaje recibido : ",mensaje);
+         
+        mensaje.user = socket.id;
+        if(sockets.length > 3){
+            sockets[3].emit('mando-un-mensaje',{user:"tu mismo",content:"Solo para ti"});
+        }
+        socket.emit('mando-un-mensaje',mensaje); // yo 
+        
+        chat.emit('mando-un-mensaje',mensaje);// a todos
+        //socket.broadcast.emit('mando-un-mensaje',mensaje);// todos menos yo!  
+    });
+});
+chat.on('disconnect',(socket)=>{
+    console.log("Cliente desconectado!!")
+});
+http.listen(3000,()=>{
+    console.log("Iniciado en *:3000");
+})
+
+
+
  console.log("Servidor EMPIEZA");
 
 // el get no lo hice con funcion sino a mano
@@ -40,6 +74,12 @@ app.get("/",
 
 
 
+
+
+
+
+
+
 app.get("/listar",
     (request,response)=>{
          //el requeste me da a lo bruto la ruta
@@ -50,6 +90,8 @@ app.get("/listar",
                 // response.send(docs);
                 });
 
+                  });
+ 
 app.get("/listar/:_id",
   (request,response)=>{
    // console.log("Acceso a la ruta", JSON.stringify(request.params)) ;
@@ -221,7 +263,7 @@ app.get("/mispelis",
     );
 */
 
-    app.listen(3300);
+   // app.listen(3300);
   //      app.listen(4200);
 //para q me diga q ha cargado el modulo
     console.log("Servidor iniciado");

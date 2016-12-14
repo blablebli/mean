@@ -13,6 +13,7 @@ import { AppRoutes } from './app.routes';
 import { AppRoutes2EnlacesDentroComponente} from './app.routes';
 import { ComponentePeliculasBbddComponent } from './componente-peliculas-bbdd/componente-peliculas-bbdd.component';
 import { ComponenteExternasBbddComponent } from './componente-externas-bbdd/componente-externas-bbdd.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ComponenteExternasBbddComponent } from './componente-externas-bbdd/comp
     ComponenteHomeComponent,
     ComponenteExternasPelisComponent,
     ComponentePeliculasBbddComponent,
-    ComponenteExternasBbddComponent
+    ComponenteExternasBbddComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,7 @@ import { AppRoutes2EnlacesDentroComponente} from './app.routes';
 import { ComponentePeliculasBbddComponent } from './componente-peliculas-bbdd/componente-peliculas-bbdd.component';
 import { ComponenteExternasBbddComponent } from './componente-externas-bbdd/componente-externas-bbdd.component';
 import { ChatComponent } from './chat/chat.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ChatComponent } from './chat/chat.component';
     ComponenteExternasPelisComponent,
     ComponentePeliculasBbddComponent,
     ComponenteExternasBbddComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

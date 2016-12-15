@@ -12,9 +12,15 @@
   "author": "pedro",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.1",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "jwt-simple": "^0.5.1",
     "mongoose": "^4.7.2",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^2.2.1",
     "socket.io": "^1.7.2"
   }
 }

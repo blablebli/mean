@@ -2,16 +2,19 @@ var express = require("express");
 var app = express();
 var bodyParser     =        require("body-parser");
 var mongoose = require("mongoose");
-var db=mongoose.connect("localhost:27017/test");
+//var db=mongoose.connect("localhost:27017/test");
 //login
 var passport	= require('passport');
 var config      = require('./config/database'); // get db config file
 var User        = require('./app/models/user'); // get the mongoose model
 var port        = process.env.PORT || 8080;
 var jwt         = require('jwt-simple');
+//añado esto
+// var morgan = require('morgan');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 //inicio login
 app.use(function(req, res, next) {
@@ -20,25 +23,24 @@ app.use(function(req, res, next) {
   next();
 });
 // log to console
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
  
 // Use the passport package in our application
 app.use(passport.initialize());
 
  
-// Use the passport package in our application
-app.use(passport.initialize());
- 
+
+
 // demo Route (GET http://localhost:8080)
 app.get('/', function(req, res) {
   res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
 // demo Route (GET http://localhost:8080)
 // ...
- 
+  
 // connect to database
 mongoose.connect(config.database);
- 
+
 // pass passport for configuration
 require('./config/passport')(passport);
  
@@ -65,7 +67,7 @@ apiRoutes.post('/signup', function(req, res) {
 });
 // create a new user account (POST http://localhost:8080/signup)
 // ...
- 
+
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
 apiRoutes.post('/authenticate', function(req, res) {
   User.findOne({
@@ -90,6 +92,7 @@ apiRoutes.post('/authenticate', function(req, res) {
     }
   });
 });
+
 apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), function(req, res) {
   var token = getToken(req.headers);
   if (token) {
@@ -129,7 +132,7 @@ app.use('/api', apiRoutes);
 console.log('There will be dragons: http://localhost:' + port);
 
 /////fin login
-
+/* */
 var Pelicula = require("./modeloSchemaPeli.js");
 var PeliculaMongooseModel = mongoose.model('Pelicula');
 
@@ -318,28 +321,31 @@ app.put("/listar", function(req, res) {
 });
 
 
-app.put("/listar", function(req, res) {
+app.put("/listar", function(req, res) 
+{
 // PeliculaMongooseModel.find({titulo:req.params.titulo}, function(err, peli) {
-     Pelicula.findById({titulo:req.params.titulo}, function(err, peli) {
-  if (peli){
-    console.log(req.body);
-      peli.titulo = req.body.titulo;
-      peli.autor = req.body.autor;
-      peli.sinopsis = req.body.sinopsis;
- 
-        peli.save(function(err) {
-                if(err) return res.send(500, err.message);
-        /* res.status(200).jsonp(peli);
-                res.json({});*/
-        console.log('User successfully updated!');
+     Pelicula.findById({titulo:req.params.titulo}, function(err, peli)
+      {
+            if (peli){
+                console.log(req.body);
+                peli.titulo = req.body.titulo;
+                peli.autor = req.body.autor;
+                peli.sinopsis = req.body.sinopsis;
+            
+                    peli.save(function(err) 
+                    {
+                            if(err) return res.send(500, err.message);
+                    /* res.status(200).jsonp(peli);
+                            res.json({});*/
+                    console.log('User successfully updated!');
 
-                });
+                    });
             }else{
             res.send('Pelicula doesnt exist');
             }
-        //res.json({});*/
+                    //res.json({});*/
 
-        // });
+                    // });
         });
         });
 

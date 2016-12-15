@@ -10,6 +10,7 @@ export class PermisoAccesoService implements CanActivate{
     if(localStorage.getItem('currentUser')){
       return true;
     }else{
+      //ojo aqui con la ruta
       this.router.navigate(['/login']);
       return false;
     }

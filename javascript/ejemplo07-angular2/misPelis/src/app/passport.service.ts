@@ -16,10 +16,30 @@ export class PassportService {
 // Metodo que recoja un usuario y un password y me almacene un token
 public token: string;
  
+  signup(username: string,password: string): Observable<boolean>{
+    // Defino el contenido del mensaje en las cabeceras
+    let cabeceras = new Headers({'Content-Type':'application/json'});
+    //el puerto tiene q coincidir con el q ponga en el express escuchando
+    return this.http.post('http://localhost:3300/api/signup',{
+      name:username,
+      password:password
+    },new RequestOptions({headers:cabeceras}))
+    .map((response: Response)=>{
+        let token = response.json() && response.json().token;
+        if(token){
+          this.almacenarToken(token,username);
+            return true;
+        }
+        return false;
+    })
+  }
+
+
   login(username: string,password: string): Observable<boolean>{
     // Defino el contenido del mensaje en las cabeceras
     let cabeceras = new Headers({'Content-Type':'application/json'});
-    return this.http.post('http://localhost:8080/authenticate',{
+    //el puerto tiene q coincidir con el q ponga en el express escuchando
+    return this.http.post('http://localhost:3300/api/authenticate',{
       name:username,
       password:password
     },new RequestOptions({headers:cabeceras}))
@@ -34,7 +54,8 @@ public token: string;
   }
   getMemberInfo(): Observable<any>{
     let cabeceras = new Headers({'Authorization':this.token });
-    return this.http.get('http://localhost:8080/memberinfo',
+     //el puerto tiene q coincidir con el q ponga en el express escuchando
+    return this.http.get('http://localhost:3300/api/memberinfo',
     new RequestOptions({headers:cabeceras}))
     .map((response: Response)=>{
       return response.json();
@@ -42,6 +63,7 @@ public token: string;
   }
 
 logout(){
+    console.log("Entra en el service logout");
   this.token = null;
   localStorage.removeItem('currentUser');
 }

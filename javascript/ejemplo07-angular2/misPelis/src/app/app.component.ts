@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  name ='hola' ;//+JSON.parse(localStorage.getItem('currentUser')).item['name'];
+
 }
 

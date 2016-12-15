@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 //import { PeliculasServiceService } from '../peliculas-service.service';
 import {Peliculas2ServiceExpressMongooseService} from '../peliculas2-service-express-mongoose.service';
 import { PeliculaModelo } from '../modelo-peliculas/pelicula-modelo';
+import { PassportService } from '../passport.service';
+
 
 
 @Component({
@@ -10,7 +12,7 @@ import { PeliculaModelo } from '../modelo-peliculas/pelicula-modelo';
   templateUrl: './componente-peliculas-bbdd.component.html',
   styleUrls: ['./componente-peliculas-bbdd.component.css'],
   // providers: [PeliculasServiceService],
-  providers: [Peliculas2ServiceExpressMongooseService],
+  providers: [Peliculas2ServiceExpressMongooseService, PassportService],
   outputs: ['eventoMostrar']
 })
 export class ComponentePeliculasBbddComponent implements OnInit {
@@ -52,7 +54,8 @@ export class ComponentePeliculasBbddComponent implements OnInit {
       this.peliNueva = new PeliculaModelo ("","");*/
       private ExternasPelis: PeliculaModelo[];
       
-  constructor(private servicioPeliculasServiceExpresMongoose: Peliculas2ServiceExpressMongooseService)
+  constructor(private servicioPeliculasServiceExpresMongoose: Peliculas2ServiceExpressMongooseService, 
+              private service: PassportService )
    {
       
 
@@ -172,6 +175,9 @@ public enviarFormulario(formulario: any){
 
 
   ngOnInit() {
+    this.service.getMemberInfo().subscribe((data)=>{
+      console.log(data);
+    })
   }
 
 }

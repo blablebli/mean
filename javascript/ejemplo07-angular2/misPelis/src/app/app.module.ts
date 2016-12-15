@@ -15,6 +15,9 @@ import { ComponentePeliculasBbddComponent } from './componente-peliculas-bbdd/co
 import { ComponenteExternasBbddComponent } from './componente-externas-bbdd/componente-externas-bbdd.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
+//Pedro añadido para el tema del login
+import { PermisoAccesoService } from './permiso-acceso.service';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { LoginComponent } from './login/login.component';
     ComponentePeliculasBbddComponent,
     ComponenteExternasBbddComponent,
     ChatComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,14 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
    RouterModule.forRoot(AppRoutes)
   ],
-  providers: [],
+ // providers: [],
+ //añadido para el tema del login
+ providers: [PermisoAccesoService
+  //  provider: 'PermisoAccesoService',
+/*useValue: () => {
+      return true;
+    }*/
+  ],
   bootstrap: [AppComponent]
  //
 // bootstrap: [AppComponent, ComponenteExternasPelisComponent]

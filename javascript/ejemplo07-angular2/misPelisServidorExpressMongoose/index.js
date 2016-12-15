@@ -49,14 +49,18 @@ var apiRoutes = express.Router();
  
 // create a new user account (POST http://localhost:8080/api/signup)
 apiRoutes.post('/signup', function(req, res) {
+    console.log("Entra en el post de signup");
   if (!req.body.name || !req.body.password) {
+      console.log("vacio");
     res.json({success: false, msg: 'Please pass name and password.'});
   } else {
+      console.log("nombre"+ req.body.name);
     var newUser = new User({
       name: req.body.name,
       password: req.body.password
     });
     // save the user
+    console.log("nombre"+ req.body.name);
     newUser.save(function(err) {
       if (err) {
         return res.json({success: false, msg: 'Username already exists.'});
@@ -70,6 +74,7 @@ apiRoutes.post('/signup', function(req, res) {
 
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
 apiRoutes.post('/authenticate', function(req, res) {
+    console.log("Entra en el post de authenticate");
   User.findOne({
     name: req.body.name
   }, function(err, user) {
@@ -94,6 +99,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 });
 
 apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), function(req, res) {
+  console.log("Entra al get memberinfo con authenticate");
   var token = getToken(req.headers);
   if (token) {
     var decoded = jwt.decode(token, config.secret);
@@ -164,8 +170,9 @@ chat.on('connection',(socket)=>{
 chat.on('disconnect',(socket)=>{
     console.log("Cliente desconectado!!")
 });
+
 http.listen(3000,()=>{
-    console.log("Iniciado en *:3000");
+    console.log("Iniciado el http listen del chat en *:3000");
 })
 
 
@@ -392,7 +399,8 @@ app.get("/mispelis",
     );
 */
 
-   // app.listen(3300);
+app.listen(3300);
+    //app.listen(3300);
   //      app.listen(4200);
 //para q me diga q ha cargado el modulo
-    console.log("Servidor iniciado");
+    console.log("Servidor iniciado en el puerto 3300");

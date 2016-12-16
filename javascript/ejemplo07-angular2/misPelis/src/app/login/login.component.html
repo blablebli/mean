@@ -1,6 +1,25 @@
-<p>
-  Usuario: <input type="text" name="username" [(ngModel)]="user.username"/><br/>
-  Password: <input type="password" name="pass" [(ngModel)]="user.pass" /><br/>
-  <button (click)="autenticar()">Autenticar</button>
-   <button (click)="logout()">Logout</button>
-</p>
+
+<div class="login jumbotron center-block">
+ <h1>Login</h1>
+  <form role="form" (submit)="autenticar(username, password)">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" #username class="form-control" id="username"  name="username" [(ngModel)]="user.username" placeholder="Username">
+</div>
+<div class="form-group">
+    <label for="password">Password</label>
+  <!-- <input type="password" #password class="form-control" id="password" placeholder="Password">-->
+   <input type="password" name="pass" [(ngModel)]="user.pass" class="form-control" id="password"  name="pass" [(ngModel)]="user.pass" placeholder="Password">
+
+  </div>
+  <!-- Usuario: <input type="text" name="username" [(ngModel)]="user.username"/><br/>
+  Password: <input type="password" name="pass" [(ngModel)]="user.pass" /><br/>-->
+   <button type="submit" class="btn btn-default">Login</button>
+    <button (click)="logout()"  class="btn btn-default">Logout</button>
+</form>
+ <!--
+  <button (click)="autenticar()"  class="btn btn-default">Autenticar</button>
+   <button (click)="logout()"  class="btn btn-default">Logout</button>
+
+   -->
+</div>
